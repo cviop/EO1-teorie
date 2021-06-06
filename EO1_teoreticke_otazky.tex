@@ -34,7 +34,7 @@
 \usepackage{multirow}
 %\usepackage{pgfplots}{compat=1.17}
 \usepackage{halloweenmath}
-
+\usepackage{datetime}
 %vysoké zavorky abs hodnoty
 \usepackage{mathtools}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
@@ -153,9 +153,11 @@
 %Ve své podstatě se nabízí dvě možnosti a~to podle vaší momentální situace. Buď máte pár dní do zkoušky a~v tom případě bych velice doporučil přečíst text celý. Nemálo tím zvýšíte šance pochopení mnoha problematik. Další možnost je, že máte zkoušku zítra ráno. V~tom případě vás odkazuji na poslední kapitolu, kde je udělán velice fofrový výtah a~jsou sepsány no bullshit odpovědi jdoucí přímo k~věci.
 
 
-%1
-\pagestyle{empty} %stranku necislovat
-
+\pagestyle{fancy}                                       %vlastni zahlavi/zapati
+\renewcommand{\headrulewidth}{0.5pt}                      %bez linky v~zahlavi
+\renewcommand{\footrulewidth}{0pt}                    %linka v~zapati - optional
+\lhead{verze \today,~\currenttime}       \chead{} \rhead{\url{github.com/cviop/EO1-teorie}}                        %pole zahlavi (prazdna)
+\lfoot{} \cfoot{} \rfoot{}   %pole zapati
 \begin{center}
     \Large \textbf{Teoretické otázky ke zkoušce z~předmětu EO1}
 \end{center}
