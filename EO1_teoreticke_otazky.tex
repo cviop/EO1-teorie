@@ -132,7 +132,7 @@
 \pagestyle{fancy}                                       %vlastni zahlavi/zapati
 \renewcommand{\headrulewidth}{0.5pt}                      %bez linky v~zahlavi
 \renewcommand{\footrulewidth}{0pt}                    %linka v~zapati - optional
-\lhead{\nazev}       \chead{verze \today} \rhead{\jmeno}                        %pole zahlavi (prazdna)
+\lhead{\nazev}       \chead{verze \today} \rhead{\url{github.com/cviop/EO1-teorie}}                        %pole zahlavi (prazdna)
 \lfoot{} \cfoot{\thepage} \rfoot{}   %pole zapati
 
 %Jak číst následující řádky?
@@ -141,10 +141,25 @@
 
 %1
 \section{Napište jaké jsou možnosti určení časové odezvy lineárního systému na obecný vstupní signál a uveďte postup výpočtu. Jaké znáte standardizované odezvy a k čemu je lze použít}
-a
+\subsection*{Odezva na jednotkový skok) - přechodová charakteristika}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{prechodova_odezva.PNG}
+    \caption{Přechodová  odezva LTI systému (integrační RC článek)}
+\end{figure}
+\begin{equation}
+    \omega (t) = u_c(t) = 1-e^{-t/RC}
+\end{equation}
 
-
-
+\subsection*{Odezva na diracův pulz - impulzní charakteristika}
+\begin{figure}
+    \centering
+    \includegraphics[wodth=\textwidth]{impusni_odezva.PNG}
+    \caption{Impulzní charakteristika LTI systému}
+\end{figure}
+\begin{equation}
+    h(t) = \frac{\text{d}\omega(t)}{\text{d}t},~~\omega(t) = \int_0^t h(\tau)\text{d}\tau
+\end{equation}
 
 
 
@@ -153,10 +168,17 @@ a
 
 %2
 \section{Definujte přenosovou funkci lineárního systému a napište jaké vlastnosti musí takový systém splňovat. Uveďte co lze pomocí přenosové funkce charakterizovat a k čemu ji lze využít}
-b
+Přenosová funkce (přenos) je definována jako podíl Laplaceových obrazů výstupní a vstupní veličiny systému při nulových počátečních podmínkách.
 
+\textbf{Linearita}: pokud se zvětší vstupní signál, tak se lineárné zvětší i signál výstupní.\\
+\textbf{Princip superpozice}: součet odezev na dílčí složky signálu je odezva na celkový signál\\
+\textbf{Čaová invariance}: je jedno, kdy do signálu pustíme signál
 
-
+Z přenosové funkce jde zjistit
+\begin{itemize}
+    \item Stabilita systému
+    \item Koeficienty modulové charakteristky
+\end{itemize}
 
 
 
@@ -165,7 +187,12 @@ b
 
 %3
 \section{Uveďe, co musí splňovat přenosová funkce stabilního systému a proč demonstrujte na příkladu}
-d
+Kořeny jmenovatele přenosové funkce stabilního systému musí ležet v levé komplexní polorovině, tj. kořeny musí být:
+\begin{itemize}
+    \item reálné záporné
+    \item komplexně sdružené se zápornou reálnou částí
+\end{itemize}
+Pak je časová odezva pro $t\rightarrow\infty$ konečná, přičemž v případě komplexních kořenů (pólů) je odezva kmitavá.
 
 
 
