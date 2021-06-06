@@ -34,6 +34,13 @@
 %\usepackage{pgfplots}{compat=1.17}
 \usepackage{halloweenmath}
 
+%vysoké zavorky abs hodnoty
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+
+
 
 \titleclass{\subsubsubsection}{straight}[\subsection]
 \newcounter{subsubsubsection}[subsubsection]
@@ -42,7 +49,6 @@
 
 
 %------------------------ čtvrtá a~pátá úroveň nadpisu ---------------------------
-
 \titleformat{\subsubsubsection}
   {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
 \titlespacing*{\subsubsubsection}
@@ -100,8 +106,8 @@
 \newcommand{\tmu}{$\mu$}
 \newcommand{\tpm}{$\pm$}
 
-
-\titleformat*{\section}{\normalsize\bfseries}
+%zmena velikosti nadpisů
+\titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
 \titleformat*{\subsubsection}{\normalsize\bfseries}
 
@@ -118,8 +124,13 @@
 
 
 
+
+
+
+
 %-------------------------------------- DOKUMENT --------------------------------------%
 %______________________________________________________________________________________%
+%definice grafů a schémat
 \usepackage{float}
 \newfloat{graf}{hbtp}{ext}
 \floatname{graf}{Graf}
@@ -127,19 +138,45 @@
 \newfloat{schema}{hbtp}{ext}
 \floatname{schema}{Schéma}
 
+
+
+
+
+
+
+
 \begin{document} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\pagestyle{fancy}                                       %vlastni zahlavi/zapati
-\renewcommand{\headrulewidth}{0.5pt}                      %bez linky v~zahlavi
-\renewcommand{\footrulewidth}{0pt}                    %linka v~zapati - optional
-\lhead{\nazev}       \chead{verze \today} \rhead{\url{github.com/cviop/EO1-teorie}}                        %pole zahlavi (prazdna)
-\lfoot{} \cfoot{\thepage} \rfoot{}   %pole zapati
 
 %Jak číst následující řádky?
 %Ve své podstatě se nabízí dvě možnosti a to podle vaší momentální situace. Buď máte pár dní do zkoušky a v tom případě bych velice doporučil přečíst text celý. Nemálo tím zvýšíte šance pochopení mnoha problematik. Další možnost je, že máte zkoušku zítra ráno. V tom případě vás odkazuji na poslední kapitolu, kde je udělán velice fofrový výtah a jsou sepsány no bullshit odpovědi jdoucí přímo k věci.
 
 
 %1
+\pagestyle{empty} %stranku necislovat
+
+\begin{center}
+    \vspace*{3cm}\Large \textbf{Teoretické otázky ke zkoušce z předmětu EO1}
+\end{center}
+~\vfill
+\textbf{Jak číst následující řádky?}\\
+Ve své podstatě se nabízí dvě možnosti a to podle vaší momentální situace. Buď máte pár dní do zkoušky a v tom případě bych velice doporučil přečíst text celý. Nemálo tím zvýšíte šance pochopení mnoha problematik. Další možnost je, že máte zkoušku zítra ráno. V tom případě vás odkazuji na poslední kapitolu, kde je udělán velice fofrový výtah a jsou sepsány no bullshit odpovědi jdoucí přímo k věci.
+
+\hfill Hodně štěstí
+
+\hfill J.D.
+
+\newpage
+\tableofcontents
+\newpage
+
+\setcounter{page}{1}
+\pagestyle{fancy}                                       %vlastni zahlavi/zapati
+\renewcommand{\headrulewidth}{0.5pt}                      %bez linky v~zahlavi
+\renewcommand{\footrulewidth}{0pt}                    %linka v~zapati - optional
+\lhead{\nazev}       \chead{verze \today} \rhead{\url{github.com/cviop/EO1-teorie}}                        %pole zahlavi (prazdna)
+\lfoot{} \cfoot{\thepage} \rfoot{}   %pole zapati
+
 \section{Napište jaké jsou možnosti určení časové odezvy lineárního systému na obecný vstupní signál a uveďte postup výpočtu. Jaké znáte standardizované odezvy a k čemu je lze použít}
 \subsection*{Odezva na jednotkový skok - přechodová charakteristika}
 \begin{figure}[h!]
@@ -170,7 +207,7 @@
 \section{Definujte přenosovou funkci lineárního systému a napište jaké vlastnosti musí takový systém splňovat. Uveďte co lze pomocí přenosové funkce charakterizovat a k čemu ji lze využít}
 Přenosová funkce (přenos) je definována jako podíl Laplaceových obrazů výstupní a vstupní veličiny systému při nulových počátečních podmínkách.
 
-\textbf{Linearita}: pokud se zvětší vstupní signál, tak se lineárné zvětší i signál výstupní.\\
+\textbf{Linearita}: pokud se zvětší vstupní signál, tak se lineárně zvětší i signál výstupní.\\
 \textbf{Princip superpozice}: součet odezev na dílčí složky signálu je odezva na celkový signál\\
 \textbf{Čaová invariance}: je jedno, kdy do signálu pustíme signál
 
@@ -226,7 +263,7 @@ Ideálně vypálit do očí, ale pokud jste odvážní, můžete si všechno odv
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.5\textwidth]{tolerancni_schema.PNG}
+    \includegraphics[width=.6\textwidth]{tolerancni_schema.PNG}
     \caption{Toletranční schémata filtrů}
     \label{fig:tolerancni:schemata}
 \end{figure}
@@ -254,7 +291,7 @@ Ideálně vypálit do očí, ale pokud jste odvážní, můžete si všechno odv
 hmmmmmmmmm\\
  \\
 \hrule%-------------------------------------
-\newpage
+%\newpage
 
 
 
@@ -265,25 +302,25 @@ hmmmmmmmmm\\
 
 %6
 \section{Nakreslete principiální zapojení zpětnovazební (ZV) struktury a odvoďte vztah pro výstupní signál. Uveďte základní dělení ZV obvodových struktur a vliv záporné ZV na vstupní a výstupní odpor zesilovače}
-\subsection{Principiální zapojení + vztah}
+\subsection*{Principiální zapojení + vztah}
 
 
-\begin{figure}[h!]
+\begin{schema}[h!]
     \centering
     \includegraphics[width=.5\textwidth]{ZV_princip.png}
     \caption{Principiální zapojení ZV systému}
     \label{fig:zv:princip}
-\end{figure}
+\end{schema}
 
 Pro výstup ze sumátoru $u_\text{1}$ platí
 \begin{equation*}
     u_\text{1} = u_i + u_\beta.
 \end{equation*}
-Pro vstup do sumátoru $u_\beta$ resp pro výstup z bloku $\beta$ platí
+Pro výstup z bloku $\beta$ resp. vstup do sumátoru $u_\beta$ platí:
 \begin{equation*}
     u_\beta = u_o \beta.
 \end{equation*}
-Pro výstup ze zesilovače se zesílením $A$ platí $u_o = A\cdot u_\text{1}$. Dosazením za $u_\text{1}$ dostaneme:
+Pro výstup ze zesilovače se zesílením $A$ platí $u_o = A u_\text{1}$. Dosazením za $u_\text{1}$ dostaneme:
 \begin{equation*}
     u_o = (u_i + \beta u_o) = \frac{u_i A}{1-\beta A}.
 \end{equation*}
@@ -292,9 +329,9 @@ Zesílení soustavy je definováno poměrem výstupu a vstupu tedy:
 \begin{equation}
     \underline{\underline{A' = \frac{u_o}{u_i} = \frac{A}{1-\beta A} = \frac{A}{F}}},
 \end{equation}
-kde činitel $F = 1-\beta A$ je tzv. \textit{vratným rozdílem} a činitel $\beta A$ je \textit{přenosem rozpojené ZV smyčky}. 
+kde činitel $F = 1-\beta A$ je tzv. \textit{vratným rozdílem} a činitel $\beta A$ je \textit{přenosem rozpojené ZV smyčky} (signál se zesílí $A$-krát a pak ještě $\beta$-krát). 
 
-\subsection{Základní dělení zpětnovazebních obvodových struktur}
+\subsection*{Základní dělení zpětnovazebních obvodových struktur}
 
 \begin{schema}[h!]
     \centering
@@ -304,14 +341,14 @@ kde činitel $F = 1-\beta A$ je tzv. \textit{vratným rozdílem} a činitel $\be
 \end{schema}
 
 
-Jestliže se jedná o \textit{zápornou zpětnou vazbu}, tak buď bude $\beta$ záporná, anebo si ji \uv{zezáporní} zesilovač (např. invertující vstup do operačního zesilovače). Pokud se budeme odkazovat na obrázek \ref{fig:zv:princip}, tak $u_1$ - napětí, které se zesiluje (to žije pouze uvnitř toho čipu) je rozdíl napětí na neinvertujícím vstupu $u_i$ a napětí na invertujícím vstupu $u_\beta$ resp. $u_o\beta$. Z toho vychází vzoreček pro ZZV
+Jestliže se jedná o \textit{zápornou zpětnou vazbu}, tak buď bude $\beta$ záporná, anebo si ji \uv{zezáporní} zesilovač (např. invertující vstup do operačního zesilovače). Pokud se budeme odkazovat na principiální schéma zpětné vazby \ref{fig:zv:princip}, tak $u_1$ - napětí, které se zesiluje (to žije pouze uvnitř toho čipu) je rozdíl napětí na neinvertujícím vstupu $u_i$ a napětí na invertujícím vstupu $u_\beta$ resp. $u_o\beta$. Z toho vychází vzoreček pro ZZV
 
 Jelikož je zpětná vazba vedena do invertujícího vstupu, platí \textit{Blackův vztah pro ZZV}:
 \begin{equation*}
     u_o = u_d\cdot A = (u_i -\beta u_o) A
 \end{equation*}
 \begin{equation}
-    A' = \frac{u_o}{u_i} = \frac{A}{1+\beta A}
+    \underline{\underline{A' = \frac{u_o}{u_i} = \frac{A}{1+\beta A}}}
     \label{eq:vysledne:zesileni}
 \end{equation}
 
@@ -324,7 +361,7 @@ Jelikož je zpětná vazba vedena do invertujícího vstupu, platí \textit{Blac
 
 Co je ta beta kurva? Jak ji mám jako najít v nějakých načmáraných schématech, wft??
 
-Pokud se podíváme na blokové schéma ZZV ve schématu. \ref{fig:opamp:ZZV} a porovnáme se zapojením ve sch. \ref{fig:noninverting}, vidíme jistou podobnost. Na horním obrázku jde do zpětné vazby čtvereček s betou. Na dolním obrázku je místo čtverečku s betou dělič napětí u kterého můžeme říct, že $\beta = \frac{R_g}{R_f + R_g}$. (Vzoreček pro dělič napětí). AHA! takže už nemusíme myslet abstraktně a máme v ruce stavící blok - dělič napětí, který zavedeme do zpětné vazby.
+Pokud se podíváme na blokové schéma ZZV ve schématu. \ref{fig:opamp:ZZV} níže a porovnáme se zapojením ve sch. \ref{fig:noninverting}, vidíme jistou podobnost. Na horním obrázku jde do zpětné vazby čtvereček s betou. Na dolním obrázku je místo čtverečku s betou dělič napětí, u kterého můžeme říct, že $\beta = \frac{R_g}{R_f + R_g}$. (Vzoreček pro přenos děliče napětí). AHA! takže už nemusíme myslet abstraktně a máme v ruce stavící blok - dělič napětí, který zavedeme do zpětné vazby.
 
 \begin{schema}[h!]
     \centering
@@ -333,14 +370,14 @@ Pokud se podíváme na blokové schéma ZZV ve schématu. \ref{fig:opamp:ZZV} a 
     \label{fig:noninverting}
 \end{schema}
 
-Vnitřní zesílení $A$ operáku (neplést s $A'$) může být třeba $10^6$. Pokud vezmeme onen dělič napětí, který bude třbna dvakrát zeslabovat (tedy $R_g = R_f)$, tzn. $\beta = 0.5$, tak po dosazení do Blackova vztahu pro ZZV \eqref{eq:vysledne:zesileni} dostaneme:
+Vnitřní zesílení $A$ operáku (neplést s $A'$ - zesílení soustavy) může být třeba $10^6$. Pokud vezmeme onen dělič napětí, který bude třeba dvakrát zeslabovat (tedy $R_g = R_f)$, tzn. $\beta = 0.5$, tak po dosazení do Blackova vztahu pro ZZV \eqref{eq:vysledne:zesileni} dostaneme:
 \begin{equation*}
     A' = \frac{A}{1-\beta A} = \frac{10^6}{1+0.5\cdot 10^6} \approx \footnote{jedničku ve jmenovateli pošleme v pizdu, protože vůči milionu je pidi midi} \frac{1}{0.5} = 2 
 \end{equation*}
 
-Vzoreček pro neinvertující zesilovač si nechávaj tetovat obvodáři na prsa a je $A' = 1+\frac{R_f}{R_g}$ a pokud dosadíme, tak je všecko v cajku a sedí oba dva způsoby výpočtu
+Vzoreček pro neinvertující zesilovač si nechávaj tetovat obvodáři na prsa a je $A' = 1+\frac{R_f}{R_g}$ .Pokud dosadíme, tak je všecko v cajku a sedí oba dva způsoby výpočtu
 
-\subsection{Vliv ZZV na vstupní a výstupní odpor}
+\subsection*{Vliv ZZV na vstupní a výstupní odpor}
 \textit{Dole je tabulka s výsledkama}
 
 Budou se tu vyskytovat čtyři veličiny které je potřeba si neplést:
@@ -356,7 +393,7 @@ Budou se tu vyskytovat čtyři veličiny které je potřeba si neplést:
 
 Vnitřní odpory jsou dány výrobním procesem součástky. Stejně jako baterka má vnitřní odpor i výstupy čipů mají vnitřní odpor. Vstupní odpor je ale odpor, který vidí signál, když přichází do soustavy a nelze ho jednoduše změřit ohmmetrem. Jak dále uvidíme, tento odpor je závislý na zesílení soustavy.
 
-\subsubsection{Vstupní odpor $R_i$ sériové ZV}
+\subsubsection*{Vstupní odpor $R_i$ sériové ZV}
 Pro sériovou ZV se budeme koukat na schéma \ref{sch:zv:seriova:odpor}.
 \begin{schema}[h!]
     \centering
@@ -369,7 +406,7 @@ Pár vztahu, které lze vyčíst ze schématu \ref{sch:zv:seriova:odpor} (bereme
 \begin{itemize}
     \item Proud, který teče ze zdroje $u_i$ je stejný jako ten, co protéká skrze $R_i$:
     \begin{equation}
-        i_i = \frac{u_\text{1}}{R_i}
+        i_i = i_{Ri} = \frac{u_\text{1}}{R_i}
         \label{eq:ri}
     \end{equation}
     \item Dále platí, že součet napětí $u_\text{1}$ a $u_\beta$ musí dát $u_i$
@@ -377,9 +414,9 @@ Pár vztahu, které lze vyčíst ze schématu \ref{sch:zv:seriova:odpor} (bereme
         u_i = u_\text{1} + u_\beta
         \label{eq:soucet:napeti}
     \end{equation}
-    \item Malý bloček s betou snímá zprava napětí na $R_z$ resp. $Au_\text{1}$. Toto napětí pak zesílí (zeslabí) beta krát a prdne se doleva jako $u_\beta$:
+    \item Malý bloček s betou snímá zprava napětí na $R_z$ resp. výstupní napětí $u_o = Au_\text{1}$. Toto napětí pak zesílí (zeslabí) beta krát a prdne se doleva jako $u_\beta$:
     \begin{equation}
-        u_\beta = \beta u_o = \beta u_\text{1}A
+        u_\beta = \beta u_o = \beta A u_\text{1}
         \label{eq:beta:napeti}
     \end{equation}
     FAKT BACHA! my tu předpokládáme, že napětí na zátěži $R_z$ je rovno zesílenému $Au_\text{1}$. Tohle jde pouze za předpokladu, že výstupní odpor $R_o = 0$. Zesík nemá výstupní (vnitřní) odpor a tedy na něm není žádný úbytek napětí.
@@ -388,13 +425,13 @@ Pár vztahu, které lze vyčíst ze schématu \ref{sch:zv:seriova:odpor} (bereme
 
 Ohmův vztah praví, že $R=U/I$. Takže vstupní odpor $R_{in}$ jest:
 \begin{equation}
-    R_{in} = \frac{u_i}{i_i} = \text{viz rovnice \eqref{eq:soucet:napeti} a \eqref{eq:ri}} = \frac{(u_\text{1}+u_\beta)}{u_1} = \text{viz rce \eqref{eq:beta:napeti}} = \frac{u_\text{1}(1+\beta A)R_i}{u_\text{1}} = \underline{\underline{R_i F}}
+    R_{in} = \frac{u_i}{i_i} = \text{viz rovnice \eqref{eq:soucet:napeti} a \eqref{eq:ri}} = \frac{R_i(u_\text{1}+u_\beta)}{u_1} = \text{viz rce \eqref{eq:beta:napeti}} = \frac{u_\text{1}(1+\beta A)R_i}{u_\text{1}} = \underline{\underline{R_i F}}
 \end{equation}
 
 Fuuuuuha, vstupní odpor je dán vnitřním odporem násobeným nějakým zesílením (v našem případě vratným rozdílem $F=(1-\beta A)$. Tohle je velice častá věc a není blbý si na ni zvyknout.
 
 
-\subsubsection{Výstupní odpor $R_o$ sériové ZV}
+\subsubsection*{Výstupní odpor $R_o$ sériové ZV}
 
 Resetujeme mozek a opět uvažujeme, že vnitřní odpor na výstupu $R_o$ existuje a má nějakou hodnotu.
 
@@ -415,7 +452,7 @@ Dosadíme do sloganu pro výpočet výstupního odporu a máme
     R_{out} = \frac{R_o u_i A}{u_i A(1+\beta A)} =...= \underline{\underline{\frac{R_o}{F}}}
 \end{equation}
 
-\subsubsection{Vstupní odpor $R_i$ paralelní ZV}
+\subsubsection*{Vstupní odpor $R_i$ paralelní ZV}
 Pro paralelní ZV se budeme koukat na schéma \ref{sch:zv:paralelni:odpor}.
 \begin{schema}[h!]
     \centering
@@ -433,7 +470,7 @@ Už to vezmeme letem světem. V tomto případě je na výstupu proudový zdroj.
     R_{in} = \frac{u_i}{i_i} = \dots = \underline{\underline{\frac{R_i}{F}}}
 \end{equation}
 
-\subsubsection{Výstupní odpor $R_i$ paralelní ZV}
+\subsubsection*{Výstupní odpor $R_i$ paralelní ZV}
 Výstupní odpor určíme opět sloganem \textit{napětí na prázdno lomeno proud nakrátko}.
 Pokud pošleme zátěž $R_z$ v pizdu (odborně se tomu říká $R_z \rightarrow \infty$), můžeme psát:
 \begin{equation*}
@@ -441,15 +478,16 @@ Pokud pošleme zátěž $R_z$ v pizdu (odborně se tomu říká $R_z \rightarrow
 \end{equation*}
 Pro tento případ se $i_i = i_\text{1}$. To proto, že jsme odebrali $R_z$ a tedy nic neteče do zpětné vazby a $i_\beta = 0$
 
-Proud na krátko získáme proklemováním $R_z$. Před Hospodkou budeme říkat $R_z = 0$. Pak platí:
+Proud na krátko získáme proklemováním (přemostěním) $R_z$. Před Hospodkou budeme říkat $R_z = 0$. Pak platí:
 \begin{equation*}
     i_z = \frac{i_i A}{1+\beta A}
 \end{equation*}
 
 Výstupní odpor $R_{out}$ pak získáme jako
 \begin{equation}
-    R_{out} = \frac{napeti~naprazdno}{proud~nakratko} = \frac{u_o}{i_z} = \dots = \underline{\underline{R_o F}}
+    R_{out} = \frac{napeti~naprazdno}{proud~nakratko} = \frac{u_o}{i_z} = \dots = \underline{\underline{R_o F}},
 \end{equation}
+kde $F=1+\beta A$
 
 Suma sumárum máme tuhletu tabulku:
 \begin{table}[h!]
@@ -463,7 +501,7 @@ Suma sumárum máme tuhletu tabulku:
     \caption{Výsledné odpory pro daná zapojení, $F=1+\beta A$}
 \end{table}%
 
-Pokud chceme být jooo cool lidi, tak můžeme začít házet slova jako impedance. To se hodí v případě střídavých signálů a vstupní a výstupní impedance jsou poté:
+Pokud chceme být jooo cool lidi, tak můžeme začít házet slova jako impedance a admitance. To se hodí v případě střídavých signálů a vstupní a výstupní impedance jsou poté:
 \begin{table}[h!]
     \centering
     \begin{tabular}{|l|l|}
@@ -486,8 +524,8 @@ Pokud chceme být jooo cool lidi, tak můžeme začít házet slova jako impedan
 
 %7
 \section{Jak se zajišťuje stabilita ZV soustav a co musí platit pro stabilní systém? Vysvětlete pojem „fázová jistota“ a „doplňkový zisk“. Co je to kmitočtová kompenzace zesilovače a proč se používá?}
-\subsection{Stabilita zpětnovazebné soustay - co zajišťuje \& podmínky}
-Stabilita se ověřuje v tzv. open loop zapojení - zapojení s rozpojenou zpětnovazební smyčkou viz schéma \ref{sch:zv:open:loop}. Zatěžovací odpor $R_z$ je dám zapojením ZV (sériová/paralolní), vstupním odporem a vnitřním odporem zesilovače.
+\subsection*{Stabilita zpětnovazebné soustay - co zajišťuje \& podmínky}
+Stabilita se ověřuje v tzv. open loop zapojení - zapojení s rozpojenou zpětnovazební smyčkou viz schéma \ref{sch:zv:open:loop}. Zatěžovací odpor $R_z$ je dán zapojením ZV (sériová/paralelní), vstupním odporem a vnitřním odporem zesilovače.
 \begin{schema}
     \centering
     \includegraphics[height=5cm]{ZV-open_loop.PNG}
@@ -520,7 +558,8 @@ Kmitočtová charakteristika v grafu \ref{graf:stabilita} ukazuje, že křivka m
 % \end{equation*}
 
 \subsection*{Fázová jistota a doplňkový zisk}
-Abychom zajistili stabilitu systému, tak kmitočtová charakteristika viz graf. \ref{graf:stabilita} by měla protnout jednotkovou kružnici lehce nad reálnou osou. Jak je vidět v grafu, úhel $\varphi_a$ je $30~\degree$ a nazývá se fázová jistota. Jde o bod, kde $|\beta A(\omega_{0_M})| = 1$ a tedy $\varphi_{\beta A}(\omega_{0_M}) = \varphi_a > 30~\degree$. Kmitočet $\omega_{0_M}$ je právě ten, při kterém charakteristika protne jednotkovou kružnici.
+Abychom zajistili stabilitu systému, tak kmitočtová charakteristika viz graf \ref{graf:stabilita} by měla protnout jednotkovou kružnici lehce nad reálnou osou. Jak je vidět v grafu, úhel $\varphi_a = 30~\degree$ a nazývá se fázová jistota. Jde o bod, kde $|\beta A(\omega_{0_M})| = 1$ a tedy $\varphi_{\beta A}(\omega_{0_M}) = \varphi_a > 30~\degree$. \\
+\textbf{Lidsky}: kmitočet $\omega_{0_M}$ je právě ten, při kterém charakteristika protne jednotkovou kružnici a tento průnik by měl svírat úhel větší jak $30~\degree$
 
 Doplňkový zisk je poté definován jako
 \begin{equation*}
@@ -547,10 +586,10 @@ Jde o techniku \textbf{přidání dominantního pólu}, aby byla soustava stabil
 
 
 
-
+\newpage
 %8
 \section{Nakreslete invertující a neinvertující zesilovače s OZ a odvoďte vztah pro napěťové zesílení v případě ideálního OZ. Jaký je vstupní odpor zapojení?}
-Důležitá věc pro praxi, pls tohle je dobrý mít zmáknutý
+\textbf{Motivace}: důležitá věc pro praxi, tohle je fakt dobrý mít zmáknutý.
 \begin{figure}[h!]
     \centering
     \begin{subfigure}{.5\textwidth}
@@ -575,7 +614,7 @@ Dvě MEGAMEGAMEGAmoc důležité mantry:
 \end{itemize}
 
 S tímto se můžeme vydat do světa odvozování. Začněme s neinvetujícím zesilovačem:\\
-Na neinvertujícím (pluskovém) vstupu je napětí $u_i$. Mantra říká, že i na inveertujícím (mínuskovém) vstupu bude $u_i$. Napští $u_i$ bude i na výstupu děliče napětí, tvořeného rezistory $R_1$ a $R_2$. To nám dává do ruky následující vztah:
+Na neinvertujícím (+) vstupu je napětí $u_i$. Mantra říká, že i na invertujícím (-) vstupu bude $u_i$. Napětí $u_i$ bude i na výstupu děliče napětí, tvořeného rezistory $R_1$ a $R_2$. To nám dává do ruky následující vztah:
 \begin{equation*}
     u_i = u_o \frac{R_1}{R_1 + R_2}.
 \end{equation*}
@@ -588,15 +627,15 @@ Zesílení je následně dáno pomeřem výstupu a vstupu a tedy dostaneme
     \underline{\underline{A_u = 1+\frac{R_2}{R_1}}}.
 \end{equation*}
 
-Mega cool vlastnost je vstupní odpor tohoto zapojení. Jak mantra říká - do vstupu nic neteče - a tedy se vstup chová jako nekonečný odpor. Velice užitečné na měření slabých signálů (EKG).
+Mega cool vlastnost je vstupní odpor tohoto zapojení. Jak mantra říká - do vstupu nic neteče - a tedy se vstup chová jako nekonečný odpor. Velice užitečné na měření slabých signálů (např. EKG).
 \begin{equation*}
     \underline{\underline{R_{in} = \infty}}
 \end{equation*}
 
 Úvaha pro invertující zesilovač je lehce složitější, ale ne zase tolik:\\
-Jestliže je neinvertující vstup připojen na zem, tak napětí na něm bude $0$~V. Stejné napětí bude také na invertujícím vstupu (jedna z manter). Napětí zde bude vůči zemi 0~V a někdy se tomuto bodu říká \textbf{virtuální zem}. Druhá mantra říká, že do vstupu operáku nic neteče. Tedy proud skrze $R_1$ musí v plné síle protéct také skrze $R_2$.
+Jestliže je neinvertující vstup připojen na zem, tak napětí na něm bude $0$~V. Stejné napětí bude také na invertujícím vstupu (to říká jedna z manter). Napětí zde bude vůči zemi 0~V a někdy se tomuto bodu říká \textbf{virtuální zem}. Druhá mantra říká, že do vstupu operáku nic neteče. Tedy proud skrze $R_1$ musí v plné síle protéct také skrze $R_2$.
 
-Proud tekoucí skrze $R_1$ je snadné spočítat, jelikož na jedné straně má $u_i$ a na druhé straně nulu, kterou si tam hlídá operák. Tedy pro proud platí:
+Proud tekoucí skrze $R_1$ je snadné spočítat, jelikož na jedné straně má $u_i$ a na druhé straně 0~V, které si tam hlídá operák. Tedy pro proud platí:
 \begin{equation*}
     i_i = \frac{U_{R1}}{R_1} = \frac{u_i}{R_1}
 \end{equation*}
@@ -607,7 +646,7 @@ Stejný proud bude protékat také skrze $R_2$ (mantra 2) a tento proud způsob�
     \label{eq:invert:proud}
 \end{equation}
 
-Teď je ale potřeba se zamyslet. Proud teče jedním směrem. Od zdroje $u_i$ do vstupu operáku, který slouží jako proudová nora (já vím, je to vstup a přitom do něj teče proud... prostě... smiřte se s tím a bude vám líp). Pokud jsme se ale napěťově od $u_i$ dostali přes rezirtor $R_1$ na nulu, tak logicky po rezistoru $R_2$ musí být napětí záporné.\footnote{Představte si, že napouštíte nádobu vodou a chcete mít hladinu přesně na nějaké rysce. Pustíte kohoutek $u_i$ a teď upouštíte výpusť vaničky $u_o$ tak, aby si hladina sedla na rysku. Ryska bude potencální nula a vy musíte jít výpustí $u_o$ tak moc do záporu, aby si hladina sedla tam, kam má.}
+Teď je ale potřeba se zamyslet. Proud teče jedním směrem. Od zdroje $u_i$ skrze $R_1$ a $R_2$ do výstupu operáku, který slouží jako proudová nora (já vím, je to výstup a přitom do něj teče proud... prostě... smiřte se s tím a bude vám líp). Pokud jsme se ale napěťově od $u_i$ dostali přes rezistor $R_1$ na nulu, tak logicky po rezistoru $R_2$ musí být napětí záporné.\footnote{Představte si, že napouštíte nádobu vodou a chcete mít hladinu přesně na nějaké rysce. Pustíte kohoutek $u_i$ a teď upouštíte výpusť vaničky $u_o$ tak, aby si hladina sedla na rysku. Ryska bude potencální nula a vy musíte jít výpustí $u_o$ tak moc do záporu, aby si hladina sedla tam, kam má.}
 
 Všimněte si, že ve schématu s invertujícím operákem měříme napětí na $R_2$ od invertujícího vstupu (virtuální zem) k $u_o$. Pokud se ale bavíme o napětí na výstupu měříme napětí od $u_o$ k zemi. Tedy je opačný smysl měření napětí a výsledné napětí $u_o$ bude záporné: $u_{R2} = -u_o$. Po dosazení do rovnice \eqref{eq:invert:proud} dostaneme:
 \begin{equation*}
@@ -629,13 +668,13 @@ Vstupní odpor je zde dán čistě $R_1$, jeslikož je to jediný odpor, který 
 
 %9
 \section{Nakreslete zapojení invertujícího sumátoru s OZ a odvoďte vztahy pro výstupní napětí v případě ideálního OZ.}
-Motivace: proudová sčítačka. Pokud chcete míchat např. audiosignály, proudová sčítačka je nejjednodušší řešení, jelikož, jak se dále dozvíme, se signály navzájem neovlivňují.
+\textbf{Motivace}: proudová sčítačka. Pokud chcete míchat např. audiosignály, proudová sčítačka je nejjednodušší řešení, jelikož se signály navzájem neovlivňují (jak se dále dozvíme).
 
 Díky rezistorům $R_1 ... R_n$ můžeme váhovat vstupní signály $u_1 ... u_n$. A jak to tedy funguje?
 
 \begin{schema}[h!]
     \centering
-    \includegraphics[width=.6\textwidth]{invert-sumator.PNG}
+    \includegraphics[width=.5\textwidth]{invert-sumator.PNG}
     \caption{Zapojení invertujícího sumátoru (proudové sčítačky)}
     \label{sch:sumator}
 \end{schema}
@@ -649,6 +688,7 @@ Stejný proud ale musí také někudy odtéct a odteče jen a pouze rezistorem R
     u_o = -u_R = -i_\Sigma R = -R \sum_{k=1}^n i_k = -R \sum_{k=1}^n \frac{u_k}{R_k}
 \end{equation}
 
+V motivaci bylo zmíněno, že se signály neovlivňují. Dokud je schopen OZ držet výše zmíněnou \textbf{virtuální zem}, každý vstup si bude myslet, že je rezistor $R_k$ připojen na zem resp. na fixní potenciál 0~V. Fixní - neovlivněn čímkoliv, co na něj přijde.
 
 
 
@@ -662,15 +702,15 @@ Stejný proud ale musí také někudy odtéct a odteče jen a pouze rezistorem R
 \subsection*{Schéma, odvození vztahu}
 \textbf{Motivace}: rozdílový zesilovač je supr čupr věc, která bere v pozaz pouze rozdíl signálů. Pokud někam vedete signál dvěma vodiči a nedejbože by se vám na nich naindukoval nějaký bordel, tak to je rozdílovému zesilovači úúúplně buřt. To proto, že naindukovaný bordel bude pro oba vodiče stejný a to náš zesík nezajímá. Náš zesík zajímá pouze rozdíl signlálů a ten zůstane nepolíben. Docela cool, co?
 
-\begin{schema}
+\begin{schema}[h!]
     \centering
-    \includegraphics[height=.3\linewidth]{rozdilovy-zesilovac-oz.PNG}
+    \includegraphics[width=.4\textwidth]{rozdilovy-zesilovac-oz.PNG}
     \caption{Rozdílový zesilovač s OZ}
     \label{sch:rozdilovy:zesilovac}
 \end{schema}
 
 Při odvozování si pomůžeme superpozicí. Super pozice je třeba v hospodě, ale superpozice nám pomůže teď stejně dobře. Vždy jeden vstup uzemníme a počítáme ten neuzemněný:
-\begin{schema}
+\begin{schema}[h!]
     \centering
     \includegraphics[height=.25\linewidth]{rozdilovy-zesilovac-oz-superpozice.PNG}
     \caption{Superpozice rozdílového zesilovače}
@@ -679,7 +719,7 @@ Při odvozování si pomůžeme superpozicí. Super pozice je třeba v hospodě,
 \begin{equation*}
     u_{o1} = u_{i1}'\left(1+\frac{R_2}{R_1}\right) = u_{i1}\frac{R_4}{R_3+R_4}\left(1+\frac{R_2}{R_1}\right)
 \end{equation*}
-\textbf{Vlevo} se nám zase narodil invertující zesilovač. Uzemněné rezistory $R_3, R_4$ nehrají roli a pro zesilení resp. výstupní napětí plaví obyč vztah
+\textbf{Vlevo} se nám zase narodil invertující zesilovač. Uzemněné rezistory $R_3, R_4$ nehrají roli a pro zesílení resp. výstupní napětí plaví obyč vztah
 \begin{equation*}
     u_{o2} = -u_{i2}\frac{R_2}{R_1}
 \end{equation*}
@@ -719,7 +759,7 @@ Podmínky, aby byla souhlasná složka rušení nulová:
     \item Impedance vstupů musí být shodné
 \end{itemize}
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width = \textwidth]{rozdilovy-zesilovac-signal.PNG}
     \caption{Oba vstupy vedou signál - s opačnou polaritou. Tedy souhlasná složka $u_s$ bude nulová}
@@ -729,7 +769,7 @@ Podmínky, aby byla souhlasná složka rušení nulová:
 \subsection*{Co je to CMMR}
 \textbf{C}ommon \textbf{M}ode \textbf{R}ejection \textbf{R}atio.
 \begin{equation}
-    \text{CMMR} = \lvert\frac{A_d}{A_s}\rvert
+    \text{CMMR} = \abs[\Big]{\frac{A_d}{A_s}}
 \end{equation}
 Sice by bylo naprosto epesní, kdyby zesilovač skutečně zesiloval pouze rozdíl, ale on bohužel zesiluje i tu souhlasnou složku. Maximalizací CMMR se rozumí co největší poměr zesílení rozdílové složky vůči zesílení souhlasné složky.
 
@@ -745,19 +785,21 @@ Sice by bylo naprosto epesní, kdyby zesilovač skutečně zesiloval pouze rozd�
 %11
 \section{Nakreslete zapojení převodníku proud-napětí s OZ a odvoďte převodní vztah pro případ ideálního OZ. Jaké jsou hlavní výhody a nevýhody uvedené implementace.}
 \textbf{Motivace}: pokud posvítíme na fotodiodu, tak začne generovat proud úměrný intenzitě osvitu. Tento proud (řádově $\mu$A) ale potřebujeme převést na napětí, abychom ho mohli snímat např. mikrokontolérem. Proto využijeme převodník proud $\rightarrow$ napětí.
+
 \begin{schema}
     \centering
     \includegraphics[width=.4\textwidth]{prevodnik-iu.PNG}
     \caption{Převodník proud - napětí}
     \label{sch:prevodnik:iu}
 \end{schema}
+
 Proud tekoucí do uzlu na invertujícím vstupu musí v plné síle protéct dál do rezistoru $R$. Na vstupech operáku je stejné napětí a jelikož je neinvertující vstup uzeměn, tak i na invertujícím vstupu bude $0$~V. Proud $i$ tekoucí do převodníku poteče skrze rezistor, kde nastane úbytek napětí
 \begin{equation}
     \underline{\underline{u_o = -i\,R}}.
 \end{equation}
 
-\textbf{Výhody}: s dobrým operačním zesilovačem lze dosáhnout veliké přesnosti\footnote{Snažíme se minimalizovat proud, který poteče do vstupu operačního zesilovače. V datasheetu se tento parametr jmenuje input bias current a u obyč operáků může mít řádově $\mu$A. U spešl operáků se dostaneme až na jednotky fA. FEMPTOAMPÉRY!! Zde vyložene počítáte počet kuliček elektronů za sekundu}\\
-\textbf{Nevýhody}: stejný proud, který snímáme, musí být operační zesilovač schopen odebrat na výstupu (current sink) - omezený rozsah.
+\textbf{Výhody}: s dobrým operačním zesilovačem lze dosáhnout veliké přesnosti\footnote{Snažíme se minimalizovat proud, který poteče do vstupu operačního zesilovače. V datasheetu se tento parametr jmenuje input bias current a u obyč operáků může mít řádově $\mu$A. U spešl operáků se dostaneme až na jednotky fA. FEMPTOAMPÉRY!! Zde vyložene počítáte počet kuliček elektronů za sekundu.}\\
+\textbf{Nevýhody}: stejný proud, který snímáme, musí být operační zesilovač schopen odebrat na výstupu (current sink) - omezený rozsah. Další nevýhoda zapojení ve schématu \ref{sch:prevodnik:iu} je to, že můžeme snímat pouze proud, který by jinak tekl do země. To proto, že na invertujícím vstupu je \textbf{virtuální zem}.
 
 
 
@@ -766,19 +808,20 @@ Proud tekoucí do uzlu na invertujícím vstupu musí v plné síle protéct dá
 
 %12
 \section{Nakreslete zapojení ideálního a ztrátového invertujícího integrátoru s OZ. Odvoďte jejich přenos a nakreslete modulové charakteristiky s popisem významných hodnot uvedených v odvození.}
+\label{chap:integrator}
 \textbf{Motivace}: Mega cool shit, můžete integrovat signál a nepotřebujete k tomu ani matlab. Lze využít také např. pro převod z obdélníkového signálu na trojúhelníkový. 
 
 \begin{figure}[h!]
     \centering
     \begin{subfigure}{.49\textwidth}
         \centering
-        \includegraphics[height=.6\linewidth]{integrator-ideal.PNG}
+        \includegraphics[height=.5\linewidth]{integrator-ideal.PNG}
         \caption{Ideální integrátor}
         \label{sch:integrator:ideal}
     \end{subfigure}
     \begin{subfigure}{.49\textwidth}
         \centering
-        \includegraphics[height=.6\linewidth]{integrator-real.PNG}
+        \includegraphics[height=.5\linewidth]{integrator-real.PNG}
         \caption{Ztrátový integrátor}
         \label{sch:integrator:ztatovy}
     \end{subfigure}
@@ -822,7 +865,7 @@ kde $H_0 = -\frac{R_2}{R_1},~~~\tau_2 = C_2 R_2,~~~\omega_0 = \frac{1}{\tau_2}$
     \caption{Přenos ztrátového integrátoru}
 \end{graf}
 
-\textit{Pozn:} chová se to jako lowpass, což není náhoda u systémů, co integrují vstupní signál. Pokud půjdeme s frekvení nízko, tak kondenzátor se bude chovat jako rozpojené svorky a tedy se uplatní pouze rezistory rvořící invertující zesilovač. Naopak při vysokých frekvencích se bude kondenzátor chovat jako zkrat a paralelní kombinace $R_2||C_2$ bude mít minimální odpor. Zesílení zesilovače je dáno jako $A_u = -\frac{R_2||C_2}{R_1}$. Jestliže se pro vysoké frce snižuje impedance paralelní kombinace, bude se pro vyšší frce snižovat také zesílení. Cool init?
+\textit{Pozn:} chová se to jako lowpass, což není náhoda u systémů, co integrují vstupní signál. Pokud půjdeme s frekvencí nízko, tak se kondenzátor bude chovat jako rozpojené svorky a tedy se uplatní pouze rezistory tvořící invertující zesilovač. Naopak při vysokých frekvencích se bude kondenzátor chovat jako zkrat a paralelní kombinace $R_2||C_2$ bude mít minimální odpor. Zesílení zesilovače je dáno jako $A_u = -\frac{R_2||C_2}{R_1}$. Jestliže se pro vysoké frce snižuje impedance paralelní kombinace, bude se pro vyšší frce snižovat také zesílení. Cool init?
 
 
 
@@ -831,13 +874,15 @@ kde $H_0 = -\frac{R_2}{R_1},~~~\tau_2 = C_2 R_2,~~~\omega_0 = \frac{1}{\tau_2}$
 
 %13
 \section{Nakreslete typické modulové charakteristiky neinvertujícího zesilovače s OZ pro zesílení $A_u = 1, 10 \text{ a } 100$, pokud je tranzitní kmitočet OZ $f_t=1$ MHz}
-Modulová charakteristika resp. přenos v závisloti na frekvenci je zobrazen v grafu \ref{graph:modulova:charakteristika}. Zesílení jsou v rámečku napsaná a tranzientní kmitočet $f_t$ je tam, kde to jde prostě všechno do kopru.
+Modulová charakteristika resp. přenos v závisloti na frekvenci je zobrazen v grafu \ref{graph:modulova:charakteristika}. Zesílení jsou v rámečku napsaná a tranzientní kmitočet $f_t$ je tam, kde to jde prostě všechno do kopru. V ten moment přestane zesilovač zesilovat.
 \begin{graf}
     \centering
     \includegraphics[width=.7\textwidth]{opamp-modulove_charakteristiky.PNG}
     \caption{Modulové charakteristiky operačního zesilovače}
     \label{graph:modulova:charakteristika}
 \end{graf}
+
+Červená křivka $A$ je open loop zesílení bez zavedené zpětné vazby. Další průběhy jsou již pro OZ se zpětnou vazbou.
 
 
 
@@ -849,7 +894,7 @@ Modulová charakteristika resp. přenos v závisloti na frekvenci je zobrazen v 
 %14
 \section{Nakreslete zapojení jednocestného usměrňovače s OZ, popište jeho činnost a nakreslete časové průběhy na jednotlivých výstupech, včetně výstupu vlastního OZ při harmonickém buzení.}
 
-\textbf{Motivace}: reálná dioda se začne otevírat až v momentě, kdy úbytek napětí na ní je větší než cca $u_d = 0.6$~V. Proto je nemožné usměrňovat signály s nižším napětím. Tento problém elegantně řeši právě usměrňovat s OZ, který dokáže kompenzovat úbytek napětí na diodě.
+\textbf{Motivace}: reálná dioda se začne otevírat až v momentě, kdy úbytek napětí na ní je větší než cca $u_d = 0.6$~V. Proto je nemožné usměrňovat signály s nižším napětím. Tento problém elegantně řeší právě usměrňovač s OZ, který dokáže kompenzovat úbytek napětí na diodě.
 
 \begin{figure}
     \centering
@@ -859,12 +904,12 @@ Modulová charakteristika resp. přenos v závisloti na frekvenci je zobrazen v 
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width = .4\textwidth]{jednocestny-usmernovac-noninvert.PNG}
+    \includegraphics[width = .3\textwidth]{jednocestny-usmernovac-noninvert.PNG}
     \caption{Jednocestný neinvertující zesilovač}
     \label{fig:jendocestny:usmernovat:noninvert}
 \end{figure}
 
-Zapojení se chová jako klasický invertující zesilovač s tím rozdílem, že ve zpětné vazbě je dioda, která ubírá cca $u_d = 0.6$~V. O tuto hodnotu bude vždy výstup offsetnut. Jak je vidět na dolním grafu z obrázku \ref{fig:jednocestny:usmernovac}.
+Zapojení se chová jako klasický invertující zesilovač s tím rozdílem, že ve zpětné vazbě je dioda, která ubírá cca $u_d = 0.6$~V. O tuto hodnotu bude vždy výstup offsetnut. Pokud má operák zajistit na invertujícím vstupu 0~V, musí napětí na výstupu ještě \uv{přebít} úbytek napětí na diodě. Jak je vidět na dolním grafu z obrázku \ref{fig:jednocestny:usmernovac}.
 
 
 
@@ -875,23 +920,23 @@ Zapojení se chová jako klasický invertující zesilovač s tím rozdílem, ž
 
 %15
 \section{Nakreslete zapojení dvoucestného usměrňovače s OZ, popište jeho činnost a nakreslete časové průběhy na jednotlivých výstupech při harmonickém buzení.}
-\textbf{Motivace} stejná jako u jednocestného, ale máme zápornou složku vstupu hozenou na výstup jako kladnou.
+\textbf{Motivace} stejná jako u jednocestného, ale místo toho, aby se záporná složka ořízla a poslala do kopru, tak je přivedena a invertována. Viz dále.
 
-\begin{schema}
+\begin{schema}[h!]
     \centering
     \includegraphics[width=.6\textwidth]{dvoucestny_usmernovac.PNG}
     \caption{Dvoucestný usměrňovač s proudovou sčítačkou}
     \label{sch:dvoucestny:usm}
 \end{schema}
 
-\begin{graf}
+\begin{graf}[h!]
     \centering
     \includegraphics[width=.7\textwidth]{dvoucestny_usmernovac-prubeh.PNG}
     \caption{Časové průběhy v obvodu s dvoucestným usměrňovačem}
     \label{graf:dvoucestny:ums}
 \end{graf}
 
-Schéma \ref{sch:dvoucestny:usm} je tvořeno dvěma bloky. Jednocestným usměrňovačem a sčítačkou napětí (proudu). Výstup jednocestného usměrňpvače je v bodě $u_2$. Odtud jde signál skrze $R_4$ do sčítačky. Origo signál jde do sčítačky skrze $R_5$. Rezistory $R_4$ a $R_5$ slouží k váhování vstupních signálů a pokud chceme docílit modrého průběhu ve grafu \ref{graf:dvoucestny:ums}, musí platit, že $R_5 = 2R_4$. Díky tomu bude výstup jednocestného usměrňovače dvakrát větší zesílení oproti signálu jdoucí do $R_5$.
+Schéma \ref{sch:dvoucestny:usm} je tvořeno dvěma bloky. Jednocestným usměrňovačem a sčítačkou napětí (proudu). Jak bylo zmíněno v kapitole od OZ, tato sčítačka obrací polaritu. Výstup jednocestného usměrňovače je v bodě $u_2$. Odtud jde signál skrze $R_4$ do sčítačky. Origo signál jde do sčítačky skrze $R_5$. Rezistory $R_4$ a $R_5$ slouží k váhování vstupních signálů jdoucích do sčítačky a pokud chceme docílit modrého průběhu ve grafu \ref{graf:dvoucestny:ums}, musí platit, že $R_5 = 2R_4$. Díky tomu bude výstup jednocestného usměrňovače dvakrát větší zesílení oproti signálu jdoucí do $R_5$.
 
 Z grafu je poté patrné, že sčítačka takto sečte vstupní signály (hnědý a modrý) a vznikne signál oranžový.
 
@@ -901,6 +946,7 @@ Z grafu je poté patrné, že sčítačka takto sečte vstupní signály (hněd�
 
 %16
 \section{Nakreslete zapojení neinvertujícího a invertujícího komparátoru s hysterezí, uveďte jeho převodní charakteristiku a odvoďte vztahy pro překlápěcí úrovně.}
+\label{chap:komp}
 \textbf{Motivace}: pokud máme např. pomalé průběhy, nebo zašumělný signál, může nastat situace, kdy komparátor sice detekuje dostatečně vysoké napětí a na výstup dá odpovídající hodnotu, ale šum může způsobit krátké oscilace, jak se zobrazeno na grafu \ref{graf:komp:nonhys}.
 \begin{graf}
     \centering
@@ -918,11 +964,12 @@ Pokud zavedeme hysterezi, bude výstup komparátoru vypadat následovně:
 \end{graf}
 
 \subsection*{Invertující komparátor s hysterezí}
-Všimněte si, že to skoro vypadá jako neinvertující zesilovač, ale vstupy (+) a (-) jsou prohozené.
+Všimněte si, že invertující komparátor na obr. \ref{fig:invert:komp} skoro vypadá jako neinvertující zesilovač, ale vstupy (+) a (-) jsou prohozené.
 
-\textbf{Jak to funguje?} Operační zesilovač zesiluje rozdíl na svých vstupech. S tím, jak obrovské je zesílení samotného zesilovače ($A = 10^6)$, stačí, aby rozdíl mezi vstupy byl jen malilinkatý a zesilovač jde hned do saturace - na výstup hodí svoje napájecí napětí $U_o^+$ pro $u_+ > u_-$ nebo $U_o^-$ pro $u_+ < u_-$.
+\textbf{Jak to funguje?} Operační zesilovač zesiluje rozdíl na svých vstupech. S tím, jak obrovské je zesílení samotného zesilovače ($A = 10^6)$, stačí, aby rozdíl mezi vstupy byl jen malilinkatý a zesilovač jde hned do saturace - na výstup hodí svoje napájecí napětí \underline{$U_o^+$ pro $u_+ > u_-$ nebo $U_o^-$ pro $u_+ < u_-$}.
 
-V momentě, kdy vstupní napětí $u_i$ (shodné s $u_-$) bude vyšší jak $u_+$, výstup se stáhne dolů ($U_o^-$ pro $u_+ < u_-$) a OZ dojde do saturace - na výstupu bude záporné napájecí napětí. Díky zavedenému děliči napětí se ale najednou na $u_+$ objeví lehce záporné napětí. Pokud bychom chtěli překlopit výstup nahoru (na výstupu bude $U_o^+$), musíme splnit, že $u_+ > u_-$. Na vstup $u_+$ nám ale teď dělič napětí zavedl trochu záporné napětí. Aby byla splněna podmínka pro překlopení, musíme vstupní signál stáhnout ještě víc do záporna, než je momentálne $u_+$.
+V momentě, kdy vstupní napětí $u_i$ (shodné s $u_-$) bude vyšší jak $u_+$, výstup se stáhne dolů ($U_o^-$ pro $u_+ < u_-$) a OZ dojde do saturace - na výstupu bude záporné napájecí napětí. Díky zavedenému děliči napětí se ale najednou na $u_+$ objeví lehce záporné napětí. Pokud bychom chtěli překlopit výstup nahoru (aby tam bylo $U_o^+$), musíme splnit, že $u_+ > u_-$. Na vstup $u_+$ nám ale teď dělič napětí zavedl trochu záporné napětí. Aby byla splněna podmínka pro překlopení, musíme vstupní signál stáhnout ještě víc do záporna, než je momentálně $u_+$.
+
 \begin{figure}[h!]
     \centering
     \begin{subfigure}{.3\textwidth}
@@ -934,7 +981,9 @@ V momentě, kdy vstupní napětí $u_i$ (shodné s $u_-$) bude vyšší jak $u_+
         \includegraphics[width=\textwidth]{komparator-invert-graf.PNG}
     \end{subfigure}
     \caption{Schéma a průběhy invertujícího komaparátoru s hysterezí}
+    \label{fig:invert:komp}
 \end{figure}
+
 Z toho nám vycházejí překlápěcí úrovně:\\
 \begin{align*}
     U_i^+ &= U_o^+\frac{R_1}{R_1 + R_2},\\
@@ -946,7 +995,7 @@ Z toho nám vycházejí překlápěcí úrovně:\\
 
 
 \subsection*{Neinvertující komparátor s hysterezí}
-Všimněte si, že to skoro vypadá jako invertující zesilovač, ale vstupy (+) a (-) jsou prohozené.
+Všimněte si, že Neinvertující komparátor na obr. \ref{fig:neinvert:komp} skoro vypadá jako invertující zesilovač, ale vstupy (+) a (-) jsou prohozené.
 
 Operační zesilovač porovnává napětí $u_+$ vůči zemi. Pokud bude $u_+ > 0$, tak $u_o = U_o^+$ (na výstupu bude kladné napájecí napětí). Pokud $u_+ < 0$, tak $u_o = U_o^-$ (na výstupu bude záporné napájecí napětí).
 
@@ -963,6 +1012,7 @@ Pokud bude na výstupu kladné napětí, tak sám operák si do svého vstupu p�
         \includegraphics[width=\textwidth]{komparator-noninvert-graf.PNG}
     \end{subfigure}
     \caption{Schéma a průběhy neinvertujícího komaparátoru s hysterezí}
+    \label{fig:neinvert:komp}
 \end{figure}
 
 \textbf{Analogie ze života}\\
@@ -987,7 +1037,7 @@ Představte si, že jste v hospodě a nějaký vnitřní ukazatel vám zabliká,
 \section{Nakreslete principiální zapojení obvodu S\&H (Sample and Hold) s OZ a popište jeho funkci, výhody/ nevýhody a použití.}
 \textbf{Motivace}: velice často využívaný obvod při A/D převodu. Pokud je spínač $S$ sepnutý, napětí na kondenzátoru $C$ odpovídá vstupnímu signálu. V momentě rozepnutí spínače zůstane uložena na kondenzátoru poslední hodnota napětí. Díky tomu můžeme \uv{zmrazit} napětí v daném čase, uložit a dále s ním pracovat - např. změřit.
 
-Operační zesilovač je zde využit jako sledovač napětí viz schéma \ref{sch:sledovac}. Jak říká mantra - do vstupu OZ nic neteče. A tedy kondenzátor se nebude nijak vybíjet.\footnote{V praxi do vstupu OZ proud skutečně teče, ale jedná se řádově \tmu A až fA.}
+Operační zesilovač je zde využit jako sledovač napětí viz schéma \ref{sch:sledovac}. Jak říká mantra - do vstupu OZ nic neteče. A tedy kondenzátor ve sch. \ref{sch:sah} se nebude nijak vybíjet.\footnote{V praxi do vstupu OZ proud skutečně teče, ale jedná se řádově \tmu A až fA.}
 
 \begin{schema}
     \centering
@@ -1003,7 +1053,7 @@ Operační zesilovač je zde využit jako sledovač napětí viz schéma \ref{sc
     \label{sch:sah}
 \end{schema}
 
-V praxi se například přidává ještě jeden sledovač napětí, který nabíjí kondenzátor. Díky tomu nezatěžujeme měřený signál.
+V praxi se přidává ještě jeden sledovač napětí mezi spínač a kondenzátor, který řídí napětí na kondenzátoru. Díky tomu nezatěžujeme měřený signál, který by jinak musel nabíjek kondík. Ještě víc v praxi se použije čip, kde je to všechno pohromadě.
 \\
 \hrule%-----------------------------------------
 
@@ -1018,7 +1068,7 @@ V praxi se například přidává ještě jeden sledovač napětí, který nabí
 
 
 
-
+\newpage
 %18
 \section{Nakreslete principiální zapojení můstkového oscilátoru. Jaké typy článků (modulových charakteristik) jsou zapojeny v záporné nebo kladné ZV? Co musí být dodrženo, aby výstupní kmity byly harmonické?}
 \begin{schema}[h!]
@@ -1045,14 +1095,14 @@ Ve zpětné vazbě je zapojena buď pásmová propust (b) nebo pásmová zádrž
 
 %19
 \section{Nakreslete zapojení astabilního klopného obvodu s komparátorem (OZ). Popište princip jeho činnosti a nakreslete časové průběhy důležitých veličin.}
-\textbf{Motivace} příjemný a jednoduchý obvod na generování obdélníkového a trojúhelníkového signálu. S trochou poladění lze využít i jako napětím řízený oscilátor (využití v syntetizátorech).
+\textbf{Motivace} příjemný a jednoduchý obvod na generování obdélníkového signálu. S trochou poladění lze využít i jako napětím řízený oscilátor (využití v syntetizátorech).
 
 \begin{figure}[h!]
     \centering
     \begin{subfigure}{.4\textwidth}
         \centering
         \includegraphics[width=.8\textwidth]{astab_klop.PNG}
-        \caption{Zapojení s operačním zesilovačem}
+        \caption{Zapojení s operačním zesilovačem zapojeným jako invertující komparátor}
         \label{sch:astab:kl}
     \end{subfigure}
     \hspace{2em}% Space between image A and B
@@ -1067,7 +1117,7 @@ Ve zpětné vazbě je zapojena buď pásmová propust (b) nebo pásmová zádrž
 
 
 
-A jak to teda funguje? OZ jde vždy do saturace - tedy na výstupu je buď kladné napájecí napětí $U_o^+$ nebo záporné napájecí napětí $U_o^-$. Kladné napájecí napětí se na výstup dostane, pokud je na pluskovým vstupu vyšší napětí než na mínuskovým vstupu: 
+\textbf{A jak to teda funguje?} OZ jde vždy do saturace - tedy na výstupu je buď kladné napájecí napětí $U_o^+$ nebo záporné napájecí napětí $U_o^-$. Kladné napájecí napětí se na výstup dostane, pokud je na neinvertujícím (+) vstupu vyšší napětí než na invertujícím (-) vstupu: 
 
 \begin{center}
     $U_o^+$ pro $u_+ > u_-$ nebo $U_o^-$ pro $u_+ < u_-$.
@@ -1079,13 +1129,13 @@ Začneme s výstupem, na němž je kladné napájecí napěí a vybitým kondenz
 
 \begin{enumerate}
     \item na $u_o$ je kladné napájecí napětí, na neinvertujícím (+) vstupu je výstupní napětí z děliče $R_1, R_2$.
-    \item Kondenzátor se začne skrze rezistor $R$ nabíjet a jeho rostoucí napětí je vidět dole v grafu \ref{graf:astab:kl}.
+    \item Kondenzátor se začne skrze rezistor $R$ nabíjet a jeho rostoucí napětí je vidět na spodním průběhu v grafu \ref{graf:astab:kl}.
     \item V momentě, kdy se napětí na kondenzátoru dostane na stejnou hodnotu, jako je napětí na děliči nahoře, obvod se překlopí. To proto, že na invertujícím vstupu je vyšší napětí jak na neinvertujícím a tedy výstup operáku jde dolů na hodnotu záporného napájecího napětí.
     \item Na výstupu je záporné napájecí napětí a díky děliči vedoucí na neinvertující vstup se záporné napětí objeví i tam.
     \item Kondenzátor se začne vybíjet skrze $R$, jak je dále vidět v dolním průběhu ve grafu \ref{graf:astab:kl}.
     \item V momentě, kdy se kondenzátor vybije tak moc do záporna, že napětí na něm spadne pod výstup děliče, najednou máme na invertujícím vstupu menší naptětí jak na neinvertujícím a operák se překlopí a na výstupu OZ se objeví kladné napájecí napětí.
 \end{enumerate}
-Toto je jedna perioda kmitu, nyní se kondenzítor začne nabíjet a budeme čekat, než napětí na něm přeleze hodnotu napětí z děliče  
+Toto je jedna perioda kmitu, nyní se kondenzítor začne nabíjet a budeme čekat, než napětí na něm přeleze hodnotu napětí z děliče.
 
 
 
@@ -1095,14 +1145,14 @@ Toto je jedna perioda kmitu, nyní se kondenzítor začne nabíjet a budeme ček
 %20
 \section{Nakreslete zapojení generátoru funkcí {trojúhelníkového a obdélníkového průběhu}. Popište princip jeho činnosti a nakreslete časové průběhy důležitých veličin.}
 
-\textbf{Motivace}: další užitečné schéma. A nejen to, dokonce je tvořen z bloků, které jsme již probíraly. Vše se krásně spojuje dohromady!
+\textbf{Motivace}: další užitečné schéma. A nejen to, dokonce je tvořen z bloků, které jsme již probírali. Vše se krásně spojuje dohromady!
 
-\textbf{Popis bloků }- krok za krokem bude následovat níže\\
-V levé části je zapojení integrátoru s OZ. Proud protékající skrze rezistor $R$ musí prtékat také skrze kondík $C$. Výstup levého OZ se bude korigovat tak, aby tato podímka byla zajištěna. Pouze tak dosáhne OZ stejného napětí na svých vstupech - v našem případě 0~V. Při konstantním proudu skrze kondenzátor bude napětí na něm lineárně stoupat/klesat. Zde se rodí trojúhelníkový průběh.
+\textbf{Popis bloků }- činnost krok za krokem bude následovat níže\\
+V levé části je zapojení integrátoru s OZ (viz kapitola \ref{chap:integrator}). Proud protékající skrze rezistor $R$ musí protékat také skrze kondík $C$. Výstup levého OZ se bude korigovat tak, aby tato podmínka byla zajištěna. Pouze tak dosáhne OZ stejného napětí na svých vstupech - v našem případě 0~V. Při konstantním proudu skrze kondenzátor bude napětí na něm lineárně stoupat/klesat. Zde se rodí trojúhelníkový průběh.
 
 Pozor! Pokud bude téct rezistorem $R$ proud doprava, musí OZ tento proud také odčerpávat. To zajistí tím, že bude výstup tahat do záporna. Tedy je to invertující integrátor.
 
-Operační zesilovač vpravo se chová jako neinvertující komparátor. V momentě, kdy napětí na výstupu levého OZ překročí komparační úroveň, hodí se na výstup OZ odpovídající napětí.
+Operační zesilovač vpravo se chová jako neinvertující komparátor (viz kapitola \ref{chap:komp}). V momentě, kdy napětí na výstupu levého OZ překročí komparační úroveň, hodí se na výstup OZ odpovídající napětí.
 \begin{schema}[h!]
     \centering
     \includegraphics[width=.7\textwidth]{gen_funct.PNG}
@@ -1110,10 +1160,10 @@ Operační zesilovač vpravo se chová jako neinvertující komparátor. V momen
     \label{sch:gen:fci}
 \end{schema}
 
-A jak to tedy funguje? Dejme tomu, že na výstupu komparátoru (pravý OZ) bude kladné napětí:
+\textbf{A jak to tedy funguje?} Dejme tomu, že na výstupu komparátoru (pravý OZ) bude kladné napájecí napětí:
 \begin{enumerate}
     \item Kladné napětí se objeví i před rezistorem $R$ a proud poteče doprava. Aby mohl téct proud dále skrz kondenzátor, musí jít výstup levého OZ do záporna (jak je vidět v grafu \ref{graf:astab:kl})
-    \item Díky hysterezi zavedené rezistory $R_1$ a $R_2$ musí jít výstup levého OZ ještě o něco víc do záporna, aby se vykompenzovalo to, že výstup komparátoru skrze $R_2$ tahá svůj neinvertující (+) vstup nahoru.
+    \item Díky hysterezi zavedené rezistory $R_1$ a $R_2$ musí jít výstup levého OZ ještě o něco víc do záporna, aby se vykompenzovalo to, že výstup komparátoru skrze $R_2$ tahá svůj neinvertující (+) vstup nahoru. (Analogie z hospody zmíněná dříve.)
     \item V momentě, kdy bude napětí dost záporné se komparátor překlopí a na výstup hodí záporné napájecí napětí. Toto napětí se objeví i na rezistoru $R$ a začné téct proud doleva. Tento proud začne zvyšovat napětí na kondenzátoru a výstup levého OZ se začne zvyšovat.
     \item Zvyšovat do té doby, než se dostane na komparační úroveň pravého komparátoru. V ten moment se výstup komparátoru překlopí a vše začne odznova.
 \end{enumerate}
@@ -1146,14 +1196,14 @@ A jak to tedy funguje? Dejme tomu, že na výstupu komparátoru (pravý OZ) bude
 
 Fázový závěs je tvořen třemi bloky:
 \begin{itemize}
-    \item Fázový detektor, který porovnává fázi vstupního signálu a zpětnovazebního signálu
-    \item Dolní propust - prostě filtru
-    \item Napětím řízený oscilátor - oscilátor, jehož frekvence se nastavuje napětím.
+    \item \textbf{Fázový detektor}, který porovnává fázi vstupního signálu a zpětnovazebního signálu
+    \item \textbf{Dolní propust} - prostě filtru
+    \item \textbf{Napětím řízený oscilátor} - oscilátor, jehož frekvence se nastavuje napětím.
 \end{itemize}
 
 Napětí $u_d$ je dáno rozdílem fází vstupního a zpětnovazebního signálu. Tím se mění frekvence VCO tak, aby byla shodná se vstupním signálem.
 
-Hodně cool věc je, že můžeme jednoduše dělit frekvenci ve zěptné vazbě. Díky tomu ošálíme fázový detektor a ten bude oscilátoru přikazovat, aby dělal násobně vyšší frekvenci, aby byla ta vydělená shodná s frekvencí vstupního signálu.
+Hodně cool věc je, že můžeme jednoduše dělit frekvenci ve zpětné vazbě. Díky tomu ošálíme fázový detektor a ten bude oscilátoru přikazovat, aby dělal násobně vyšší frekvenci, aby byla ta vydělená shodná s frekvencí vstupního signálu.
 
 \begin{graf}[h!]
     \centering
@@ -1166,7 +1216,7 @@ Tomu nerozumím, ale hospodka má dva pěkný grafíky, tak třeba pomůžou a n
 \begin{graf}[h!]
     \centering
     \includegraphics[width=\textwidth]{pasmo_zadrzeni.PNG}
-    \caption{Závislost výstuoního kmitočtu $f_2$ na vstupním kmitočtu $f_1$ při přelaďování $f_1$ zdola (a) a shora (b)}
+    \caption{Závislost výstupního kmitočtu $f_2$ na vstupním kmitočtu $f_1$ při přelaďování $f_1$ zdola (a) a shora (b)}
     \label{graf:pasmo:zadrzeni}
 \end{graf}
 
@@ -1181,22 +1231,24 @@ Snad to nebude ve zkoušce...
 \hrule%-----------------------------------------
 %22
 \section{Nakreslete základní zapojení s bipolárním/unipolárním tranzistorem jako spínačem pro buzení uzemněné/neuzemněné LED, resp. odporové/indukční zátěže. Určete vztah pro výpočet a volbu uvedených komponent pro známý proud zátěží $I_\text{z}$ v ustáleném stavu a dané úrovně řídícího napětí}
-\textbf{Motivace}: můžeme si ukazovat stovky typů zesilovačů, ale stejně je ve výsledku tranztor nejvíce využíván jako spínač. 
+\textbf{Motivace}: můžeme si ukazovat stovky typů zesilovačů, ale stejně je ve výsledku tranzistor nejvíce využíván jako spínač. 
 
-Spínání se dělí na \textit{low-side}, kde tranzistorem dovolujeme, aby odtekl proud do země. Další typ je \textit{high-side}, kde pomocí tranzistoru přivádíme napájecí napětí do zátěže.
+Spínání se dělí na \textit{low-side}, kde tranzistorem dovolujeme, aby odtekl proud do země a na \textit{high-side}, kde pomocí tranzistoru přivádíme napájecí napětí do zátěže.
 
 \begin{schema}[h!]
     \centering
     \includegraphics[width=.9\textwidth]{tranzistory-spinace.pdf}
     \caption{Základní zapojení tranzistorů jako spínačů ke spínání odporové a induktivní zátěže}
 \end{schema}
-Je důležité si uvědomit, že pokud přivedeme napětí na bázi NPN (šipka ven) resp. gate N-kanálového tranzistoru, tak se sepne. ALE! U PNP a P-kanálových tranzistorů je to naopak. Pokud přivedeme napětí VCC skrze rezistor na bázi, tak se tranzistor uzavře a nebude vodit. To proto, že nebude žádný úbytek napětí mezi emitorem (to se šipkou dovnitř) a bází. Abychom sepli tranzistor, musíme hodit CTRL vstup na zem. Obdobně pro P-kanálový tranzistor (úplně vpravo). Tento spínač má v sobě tedy ještě zabudovanou negaci a spíná při přivedení 0~V.
+Je důležité si uvědomit, že pokud přivedeme napětí na bázi NPN (šipka ven) resp. gate N-kanálového tranzistoru, tak se sepne. 
+
+ALE! U PNP a P-kanálových tranzistorů je to naopak. Pokud přivedeme napětí VCC skrze rezistor na bázi, tak se tranzistor uzavře a nebude vodit. To proto, že nebude žádný úbytek napětí mezi emitorem (to se šipkou dovnitř) a bází (oba budou připojeny na napájecí napětí). Abychom sepli tranzistor, musíme hodit CTRL vstup na zem. Obdobně pro P-kanálový tranzistor (úplně vpravo). Tento spínač má v sobě tedy ještě zabudovanou negaci a spíná při přivedení 0~V.
 
 Proud, který je bipolární tranzistor ochoten pustit z kolektoru do emitoru je $\beta$-násobek proudu do báze.
 \begin{equation*}
     I_\text{C} = \beta I_\text{B}, ~~~I_\text{B} = \frac{V_\text{CTRL} - V_\text{BE}}{R_\text{B}} = \frac{U_\text{CTRL} - 0.7~\text{V}}{R_\text{B}}
 \end{equation*}
-Tento proud, který je tranzistor ochoten pustit musi být větší, než proud, který musí téct zátěží. Aby byl proud limitován pouze rezistorem v sérii se zátěží a nebyl limitován tranzistorem.
+Tento proud, který je tranzistor ochoten pustit musí být větší, než proud, který cheme, aby tekl zátěží. Aby byl proud limitován pouze rezistorem v sérii se zátěží a nebyl limitován tranzistorem.
 
 U unipolárního tranzistoru musíme dávat pozor, aby proud, který je tranzistor ochoten pustit:
 \begin{equation*}
@@ -1204,13 +1256,14 @@ U unipolárního tranzistoru musíme dávat pozor, aby proud, který je tranzist
 \end{equation*}
 byl větší, než proud, který požadujeme, aby tekl zátěží.
 
-Rezistory u Gatu MOSFETu jsou pulldown/pullup rezistory, které zajistí, že se na Gatu nenaindukuje náboj, který by otevřel přechod (to se děje velice často a pokud tam nedáte pulldown/pullup, tak si poserete život).
+Rezistory u Gatu MOSFETů jsou pulldown/pullup rezistory, které zajistí, že se na Gatu nenaindukuje náboj, který by otevřel přechod (to se děje velice často a pokud tam nedáte pulldown/pullup, tak si poserete život).
 
+Pokud jde o spínání induktivní zátěže, tak je nutné přidat diodu v závěrném směru. Pokud se rychle změní proud cívkou, naindukuje se na ní napětí v opačném směru. Tato špička může prorazit tranzistor a je potřeba paralelní dioda, která tuto špičku pohltí.
 
 
 %23
 \section{Nakreslete zapojení jednostupňového zesilovače s BJT NPN/PNP v zapojení SE/SB/SC a podle náhradního linearizovaného schématu odvoďte vztah pro jeho vstupní odpor $R_i$ a napěťové zesílení $A_u$.}
-\textbf{Motivace}: zesilovače aaaaaaaaaaaaaa!
+\textbf{Motivace}: zesilovače aaaaaA!
 
 \subsection*{Společný Emitor}
 \begin{figure}[h!]
