@@ -816,7 +816,7 @@ Proud tekoucí do uzlu na invertujícím vstupu musí v~plné síle protéct dá
 \end{equation}
 
 \textbf{Výhody}: s~dobrým operačním zesilovačem lze dosáhnout veliké přesnosti\footnote{Snažíme se minimalizovat proud, který poteče do vstupu operačního zesilovače. V~datasheetu se tento parametr jmenuje input bias current a~u obyč operáků může mít řádově $\mu$A. U~spešl operáků se dostaneme až na jednotky fA. FEMPTOAMPÉRY!! Zde vyložene počítáte počet kuliček elektronů za sekundu.}\\
-\textbf{Nevýhody}: stejný proud, který snímáme, musí být operační zesilovač schopen odebrat na výstupu (current sink) - omezený rozsah. Další nevýhoda zapojení ve schématu \ref{sch:prevodnik:iu} je to, že můžeme snímat pouze proud, který by jinak tekl do země. To proto, že na invertujícím vstupu je \textbf{virtuální zem}.
+\textbf{Nevýhody}: stejný proud, který snímáme, musí být operační zesilovač schopen odebrat na výstupu (current sink) - omezený rozsah. Další nevýhoda zapojení ve schématu \ref{sch:prevodnik:iu} je to, že můžeme snímat pouze proud, který by jinak tekl do země. To proto, že na invertujícím vstupu je \textbf{virtuální zem}. Nemůžeme tedy např. snímat proud tekoucí do báze tranzistoru, jelikož náš obvod umí snímat pouze proudy, které mají téct do země.
 
 
 
@@ -1283,6 +1283,8 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 \textbf{Motivace}: zesilovače aaaaaA!
 
 \subsection*{Společný Emitor}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.1}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
+
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NPN_SE.PNG}
@@ -1295,6 +1297,7 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 \end{align}
 
 \subsection*{Společná Báze}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.3}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NPN_SB.PNG}
@@ -1307,6 +1310,7 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 \end{align}
 
 \subsection*{Společný Kolektor (SC)}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.5}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NPN_SC.PNG}
@@ -1326,6 +1330,8 @@ Napěťové zesílení $1$, ale proudové zesílení vysoké. Jedná se o~tzv. \
 \section{Nakreslete zapojení jednostupňového zesilovače s~MOSFET s~indukovaným kanálem typu N/P v~zapojení SS/SG/SD a~podle náhradního linearizovaného schématu odvoďte vztah pro jeho vstupní odpor a~napěťové zesílení.}
 
 \subsection*{Společný Source}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.2}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
+
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NMOS-SS.PNG}
@@ -1338,6 +1344,7 @@ Napěťové zesílení $1$, ale proudové zesílení vysoké. Jedná se o~tzv. \
 \end{align}
 
 \subsection*{Společný Gate}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.4}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NMOS-SG.PNG}
@@ -1350,6 +1357,7 @@ Napěťové zesílení $1$, ale proudové zesílení vysoké. Jedná se o~tzv. \
 \end{align}
 
 \subsection*{Společný Drain}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.6}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NMOS-SD.PNG}
