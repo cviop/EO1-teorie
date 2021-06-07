@@ -37,6 +37,7 @@
 \usepackage{datetime}
 %vysoké zavorky abs hodnoty
 \usepackage{mathtools}
+\usepackage{wrapfig}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
 
@@ -158,10 +159,16 @@
 \renewcommand{\footrulewidth}{0pt}                    %linka v~zapati - optional
 \lhead{}       \chead{verze \today,~\currenttime} \rhead{}                        %pole zahlavi (prazdna)
 \lfoot{} \cfoot{} \rfoot{}   %pole zapati
+\begin{wrapfigure}{r}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.1\textwidth]{git-qr.pdf}
+\end{wrapfigure}
+
 \begin{center}
     {\Large \textbf{Teoretické otázky ke zkoušce z~předmětu EO1}}\\
     {\normalfont Nejnovější verzi najdete vždy na \url{https://github.com/cviop/EO1-teorie/blob/main/EO1_teoreticke_otazky.pdf}}\\
 \end{center}
+
 \textit{Pozn: u kapitol jsou prokliky na skripta. Některé prohlížeče ale bohužel neotevřou PDFko na správném místě} :(
 %~\vfill
 %\textbf{Jak číst následující řádky?}\\
@@ -187,7 +194,7 @@
 \href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.7.3.1}{\textit{Odkaz na odpovídající kapitolu v Hospodkových skriptách}}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=.8\textwidth]{prechodova_odezva.PNG}
+    \includegraphics[width=.9\textwidth]{prechodova_odezva.PNG}
     \caption{Přechodová  odezva LTI systému (integrační RC článek)}
 \end{figure}
 \begin{equation}
@@ -197,7 +204,7 @@
 \subsection*{Odezva na diracův pulz - impulzní charakteristika}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=.8\textwidth]{impusni_odezva.PNG}
+    \includegraphics[width=.9\textwidth]{impusni_odezva.PNG}
     \caption{Impulzní charakteristika LTI systému}
 \end{figure}
 \begin{equation}
