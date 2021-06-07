@@ -1291,7 +1291,7 @@ Spínání se dělí na \textit{low-side}, kde tranzistorem dovolujeme, aby odte
 
 \begin{schema}[h!]
     \centering
-    \includegraphics[width=.9\textwidth]{tranzistory-spinace.pdf}
+    \includegraphics[width=.9\textwidth]{tranzistory-spinace2.pdf}
     \caption{Základní zapojení tranzistorů jako spínačů ke spínání odporové a~induktivní zátěže}
 \end{schema}
 Je důležité si uvědomit, že pokud přivedeme napětí na bázi NPN (šipka ven) resp. gate N-kanálového tranzistoru, tak se sepne. 
@@ -1314,6 +1314,11 @@ Rezistory u~Gatu MOSFETů jsou pulldown/pullup rezistory, které zajistí, že s
 
 Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~závěrném směru. Pokud se rychle změní proud cívkou, naindukuje se na ní napětí v~opačném směru. Tato špička může prorazit tranzistor a~je potřeba paralelní dioda, která tuto špičku pohltí.
 
+\begin{schema}
+    \centering
+    \includegraphics[width=.7\textwidth]{tranzistory-spinace_driver.PNG}
+    \caption{High-side spínání pomocí omezeného rozsahu napětí řídící logiky}
+\end{schema}
 
 %23
 \section{Nakreslete zapojení jednostupňového zesilovače s~BJT NPN/PNP v~zapojení SE/SB/SC a~podle náhradního linearizovaného schématu odvoďte vztah pro jeho vstupní odpor $R_i$ a~napěťové zesílení $A_u$.}
