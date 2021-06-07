@@ -183,6 +183,7 @@
 
 \section{Napište jaké jsou možnosti určení časové odezvy lineárního systému na obecný vstupní signál a~uveďte postup výpočtu. Jaké znáte standardizované odezvy a~k čemu je lze použít}
 \subsection*{Odezva na jednotkový skok - přechodová charakteristika}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.7.3.1}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.8\textwidth]{prechodova_odezva.PNG}
@@ -209,6 +210,8 @@
 
 %2
 \section{Definujte přenosovou funkci lineárního systému a~napište jaké vlastnosti musí takový systém splňovat. Uveďte co lze pomocí přenosové funkce charakterizovat a~k čemu ji lze využít}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.7.3.2}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 Přenosová funkce (přenos) je definována jako \textbf{podíl} Laplaceových obrazů výstupní a~vstupní veličiny systému při nulových počátečních podmínkách.
 
 \textbf{Linearita}: pokud se zvětší vstupní signál, tak se lineárně zvětší i~signál výstupní.\\
@@ -228,6 +231,8 @@ Z přenosové funkce jde zjistit
 
 %3
 \section{Uveďe, co musí splňovat přenosová funkce stabilního systému a~proč demonstrujte na příkladu}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/systemy.pdf#page.15}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 Kořeny \textbf{jmenovatele} přenosové funkce stabilního systému musí ležet v~\textbf{levé komplexní polorovině}, tj. kořeny musí být:
 \begin{itemize}
     \item reálné záporné
@@ -245,6 +250,8 @@ Pak je časová odezva pro $t\rightarrow\infty$ konečná, přičemž v~případ
 
 %4
 \section{Napište přenosovou funkci kmitočtového filtru 2.řádu typu dolní/horní/pásmová propust, případně pásmová zádrž, definujte jednotlivé parametry a~vysvětlete co určují (v kmitočtové a~časové oblasti}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/filtry_prenosy.pdf#page.18}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{filtry_2_rad.png}
@@ -270,8 +277,9 @@ Pak je časová odezva pro $t\rightarrow\infty$ konečná, přičemž v~případ
 
 
 
-%5
+%5http://hippo.feld.cvut.cz/vyuka/soubory/filtry_synteza.pdf#page.23
 \section{Nakreslete toleranční schéma filtru typu DP/HP/PP/PZ, popište význam charakteristických hodnot. Do schématu pak zakreslete typické modulové charakteristiky pro Besselovu / Butterworthovu / Chebyševovu / inverzní Chebyševovu / Cauerovu aproximaci stejného řádu. Porovnejte jejich vlastnosti v~kmitočtové a~časové oblasti}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/filtry_synteza.pdf#page.23}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 
 \begin{figure}[H]
     \centering
@@ -315,7 +323,7 @@ hmmmmmmmmm\\
 %6
 \section{Nakreslete principiální zapojení zpětnovazební (ZV) struktury a~odvoďte vztah pro výstupní signál. Uveďte základní dělení ZV obvodových struktur a~vliv záporné ZV na vstupní a~výstupní odpor zesilovače}
 \subsection*{Principiální zapojení + vztah}
-
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.10.1}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 
 \begin{schema}[h!]
     \centering
@@ -536,6 +544,8 @@ Pokud chceme být jooo cool lidi, tak můžeme začít házet slova jako impedan
 
 %7
 \section{Jak se zajišťuje stabilita ZV soustav a~co musí platit pro stabilní systém? Vysvětlete pojem „fázová jistota“ a~„doplňkový zisk“. Co je to kmitočtová kompenzace zesilovače a~proč se používá?}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.10.8.4}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \subsection*{Stabilita zpětnovazebné soustay - co zajišťuje \& podmínky}
 Stabilita se ověřuje v~tzv. open loop zapojení - zapojení s~rozpojenou zpětnovazební smyčkou viz schéma \ref{sch:zv:open:loop}. Zatěžovací odpor $R_z$ je dán zapojením ZV (sériová/paralelní), vstupním odporem a~vnitřním odporem zesilovače.
 \begin{figure}[h!]
@@ -602,6 +612,8 @@ Jde o~techniku \textbf{přidání dominantního pólu}, aby byla soustava stabil
 \newpage
 %8
 \section{Nakreslete invertující a~neinvertující zesilovače s~OZ a~odvoďte vztah pro napěťové zesílení v~případě ideálního OZ. Jaký je vstupní odpor zapojení?}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.3}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \textbf{Motivace}: důležitá věc pro praxi, tohle je fakt dobrý mít zmáknutý.
 \begin{figure}[h!]
     \centering
@@ -681,6 +693,8 @@ Vstupní odpor je zde dán čistě $R_1$, jeslikož je to jediný odpor, který 
 
 %9
 \section{Nakreslete zapojení invertujícího sumátoru s~OZ a~odvoďte vztahy pro výstupní napětí v~případě ideálního OZ.}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.5}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \textbf{Motivace}: proudová sčítačka. Pokud chcete míchat např. audiosignály, proudová sčítačka je nejjednodušší řešení, jelikož se signály navzájem neovlivňují (jak se dále dozvíme).
 
 Díky rezistorům $R_1 ... R_n$ můžeme váhovat vstupní signály $u_1 ... u_n$. A~jak to tedy funguje?
@@ -718,6 +732,8 @@ Protože tohle bylo ve zkoušce. Na první pohled divoký obvod je ve výsledku 
 
 %10
 \section{Nakreslete rozdílový zesilovač s~OZ a~odvoďte vztah pro výstupní napětí v~případě ideálního OZ. Definujte rozdílovou a~souhlasnou složku vstupního signálu a~odvoďte podmínku, pro kterou je souhlasná složka zesílení nulová. Co udává parametr CMMR?}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.9}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \subsection*{Schéma, odvození vztahu}
 \textbf{Motivace}: rozdílový zesilovač je supr čupr věc, která bere v~pozaz pouze rozdíl signálů. Pokud někam vedete signál dvěma vodiči a~nedejbože by se vám na nich naindukoval nějaký bordel, tak to je rozdílovému zesilovači úúúplně buřt. To proto, že naindukovaný bordel bude pro oba vodiče stejný a~to náš zesík nezajímá. Náš zesík zajímá pouze rozdíl signlálů a~ten zůstane nepolíben. Docela cool, co?
 
@@ -802,6 +818,8 @@ Sice by bylo naprosto epesní, kdyby zesilovač skutečně zesiloval pouze rozd�
 
 %11
 \section{Nakreslete zapojení převodníku proud-napětí s~OZ a~odvoďte převodní vztah pro případ ideálního OZ. Jaké jsou hlavní výhody a~nevýhody uvedené implementace.}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.8}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \textbf{Motivace}: pokud posvítíme na fotodiodu, tak začne generovat proud úměrný intenzitě osvitu. Tento proud (řádově $\mu$A) ale potřebujeme převést na napětí, abychom ho mohli snímat např. mikrokontolérem. Proto využijeme převodník proud $\rightarrow$ napětí.
 
 \begin{schema}
@@ -826,6 +844,8 @@ Proud tekoucí do uzlu na invertujícím vstupu musí v~plné síle protéct dá
 
 %12
 \section{Nakreslete zapojení ideálního a~ztrátového invertujícího integrátoru s~OZ. Odvoďte jejich přenos a~nakreslete modulové charakteristiky s~popisem významných hodnot uvedených v~odvození.}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.10}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \label{chap:integrator}
 \textbf{Motivace}: Mega cool shit, můžete integrovat signál a~nepotřebujete k~tomu ani matlab. Lze využít také např. pro převod z~obdélníkového signálu na trojúhelníkový. 
 
@@ -892,6 +912,8 @@ kde $H_0 = -\frac{R_2}{R_1},~~~\tau_2 = C_2 R_2,~~~\omega_0 = \frac{1}{\tau_2}$
 
 %13
 \section{Nakreslete typické modulové charakteristiky neinvertujícího zesilovače s~OZ pro zesílení $A_u = 1, 10 \text{ a~} 100$, pokud je tranzitní kmitočet OZ $f_t=1$ MHz}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/zv.pdf#page.29}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 Modulová charakteristika resp. přenos v~závisloti na frekvenci je zobrazen v~grafu \ref{graph:modulova:charakteristika}. Zesílení jsou v~rámečku napsaná a~tranzientní kmitočet $f_t$ je tam, kde to jde prostě všechno do kopru. V~ten moment přestane zesilovač zesilovat.
 \begin{graf}
     \centering
@@ -911,6 +933,7 @@ Modulová charakteristika resp. přenos v~závisloti na frekvenci je zobrazen v~
 
 %14
 \section{Nakreslete zapojení jednocestného usměrňovače s~OZ, popište jeho činnost a~nakreslete časové průběhy na jednotlivých výstupech, včetně výstupu vlastního OZ při harmonickém buzení.}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.16}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 
 \textbf{Motivace}: reálná dioda se začne otevírat až v~momentě, kdy úbytek napětí na ní je větší než cca $u_d = 0.6$~V. Proto je nemožné usměrňovat signály s~nižším napětím. Tento problém elegantně řeší právě usměrňovač s~OZ, který dokáže kompenzovat úbytek napětí na diodě.
 
@@ -938,6 +961,8 @@ Zapojení se chová jako klasický invertující zesilovač s~tím rozdílem, ž
 
 %15
 \section{Nakreslete zapojení dvoucestného usměrňovače s~OZ, popište jeho činnost a~nakreslete časové průběhy na jednotlivých výstupech při harmonickém buzení.}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.18}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \textbf{Motivace} stejná jako u~jednocestného, ale místo toho, aby se záporná složka ořízla a~poslala do kopru, tak je přivedena a~invertována. Viz dále.
 
 \begin{schema}[h!]
@@ -965,6 +990,8 @@ Z grafu je poté patrné, že sčítačka takto sečte vstupní signály (hněd�
 %16
 \section{Nakreslete zapojení neinvertujícího a~invertujícího komparátoru s~hysterezí, uveďte jeho převodní charakteristiku a~odvoďte vztahy pro překlápěcí úrovně.}
 \label{chap:komp}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.19}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \textbf{Motivace}: pokud máme např. pomalé průběhy, nebo zašumělný signál, může nastat situace, kdy komparátor sice detekuje dostatečně vysoké napětí a~na výstup dá odpovídající hodnotu, ale šum může způsobit krátké oscilace, jak se zobrazeno na grafu \ref{graf:komp:nonhys}.
 \begin{graf}
     \centering
@@ -1052,7 +1079,8 @@ Představte si, že jste v~hospodě a~nějaký vnitřní ukazatel vám zabliká,
 
 
 %17
-\section{Nakreslete principiální zapojení obvodu S\&H (Sample and Hold) s~OZ a~popište jeho funkci, výhody/ nevýhody a~použití.}
+\section{Nakreslete principiální zapojení obvodu S\&H (Sample and Hold) s~OZ a~popište jeho funkci, výhody/ nevýhody a~použití.}\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.15}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
+
 \textbf{Motivace}: velice často využívaný obvod při A/D převodu. Pokud je spínač $S$ sepnutý, napětí na kondenzátoru $C$ odpovídá vstupnímu signálu. V~momentě rozepnutí spínače zůstane uložena na kondenzátoru poslední hodnota napětí. Díky tomu můžeme \uv{zmrazit} napětí v~daném čase, uložit a~dále s~ním pracovat - např. změřit.
 
 Operační zesilovač je zde využit jako sledovač napětí viz schéma \ref{sch:sledovac}. Jak říká mantra - do vstupu OZ nic neteče. A~tedy kondenzátor ve sch. \ref{sch:sah} se nebude nijak vybíjet.\footnote{V praxi do vstupu OZ proud skutečně teče, ale jedná se řádově \tmu A~až fA.}
@@ -1284,7 +1312,7 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 \textbf{Motivace}: zesilovače aaaaaA!
 
 \subsection*{Společný Emitor}
-\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.1}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.1}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 
 \begin{figure}[h!]
     \centering
@@ -1298,7 +1326,7 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 \end{align}
 
 \subsection*{Společná Báze}
-\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.3}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.3}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NPN_SB.PNG}
@@ -1311,7 +1339,7 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 \end{align}
 
 \subsection*{Společný Kolektor (SC)}
-\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.5}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.5}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NPN_SC.PNG}
@@ -1331,7 +1359,7 @@ Napěťové zesílení $1$, ale proudové zesílení vysoké. Jedná se o~tzv. \
 \section{Nakreslete zapojení jednostupňového zesilovače s~MOSFET s~indukovaným kanálem typu N/P v~zapojení SS/SG/SD a~podle náhradního linearizovaného schématu odvoďte vztah pro jeho vstupní odpor a~napěťové zesílení.}
 
 \subsection*{Společný Source}
-\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.2}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.2}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 
 \begin{figure}[h!]
     \centering
@@ -1345,7 +1373,7 @@ Napěťové zesílení $1$, ale proudové zesílení vysoké. Jedná se o~tzv. \
 \end{align}
 
 \subsection*{Společný Gate}
-\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.4}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.4}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NMOS-SG.PNG}
@@ -1358,7 +1386,7 @@ Napěťové zesílení $1$, ale proudové zesílení vysoké. Jedná se o~tzv. \
 \end{align}
 
 \subsection*{Společný Drain}
-\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.6}{Odkaz na odpovídající kaopitolu v Hospodkových skriptách}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.6}{Odkaz na odpovídající kapitolu v Hospodkových skriptách}
 \begin{figure}[h!]
     \centering
     \includegraphics[height=5cm]{NMOS-SD.PNG}
