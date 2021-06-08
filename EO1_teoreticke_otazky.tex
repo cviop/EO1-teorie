@@ -1354,6 +1354,14 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 %23
 \section{Nakreslete zapojení jednostupňového zesilovače s~BJT NPN/PNP v~zapojení SE/SB/SC a~podle náhradního linearizovaného schématu odvoďte vztah pro jeho vstupní odpor $R_i$ a~napěťové zesílení $A_u$.}
 \textbf{Motivace}: zesilovače aaaaaA!
+\subsection*{Pár důležitých vztahů na začátek}
+\begin{align*}
+    g_m &= 40I_C\\
+    g_\pi &= \frac{1}{r_\pi} = \frac{g_m}{\beta}\\
+    g_e &= \frac{1}{r_e} = \frac{g_m}{\alpha} = \frac{\beta}{r_\pi \alpha}= \frac{\beta + 1 }{r_\pi}
+    r_o = \frac{U_A}{I_C},\text{ kde $U_A = 80~V$ je Earlyho napětí}
+    \alpha &= \frac{\beta}{\beta +1}
+\end{align*}
 
 \subsection*{Společný Emitor}
 \href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.1}{\textit{Odkaz na odpovídající kapitolu v Hospodkových skriptách}}
@@ -1401,6 +1409,13 @@ Napěťové zesílení $1$, ale proudové zesílení vysoké. Jedná se o~tzv. \
 
 %24
 \section{Nakreslete zapojení jednostupňového zesilovače s~MOSFET s~indukovaným kanálem typu N/P v~zapojení SS/SG/SD a~podle náhradního linearizovaného schématu odvoďte vztah pro jeho vstupní odpor a~napěťové zesílení.}
+
+\subsection*{Pár důležitých vztahů na začátek}
+\begin{align*}
+    g_m &= K_p\frac{W}{L}(U_{GS} - U_{TO})\\
+    g_m &= 2\sqrt{K_\beta I_D}\\
+    g_o &= \frac{1}{r_o} = I_D|\lambda|
+\end{align*}
 
 \subsection*{Společný Source}
 \href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#subsection.14.5.2}{\textit{Odkaz na odpovídající kapitolu v Hospodkových skriptách}}
