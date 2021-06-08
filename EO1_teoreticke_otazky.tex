@@ -11,7 +11,7 @@
 \usepackage{parskip}                    %mezera mezi odstavci
 %\usepackage[document]{ragged2e}         %text zarovany vlevo
 \usepackage[none]{hyphenat} \sloppy     %slova nedelit a~nepretekat
-\usepackage{titlesec}
+\usepackage[nobottomtitles]{titlesec}
 \setcounter{secnumdepth}{4}
 \clubpenalty 10000                      %kontrolovat sirotky
 \widowpenalty 10000                     %kontrolovat vdovy
@@ -1291,34 +1291,65 @@ Spínání se dělí na \textit{low-side}, kde tranzistorem dovolujeme, aby odte
 
 \begin{schema}[h!]
     \centering
-    \includegraphics[width=.9\textwidth]{tranzistory-spinace2.pdf}
+    \includegraphics[width=.9\textwidth]{tranzistory-spinace2_crop.pdf}
     \caption{Základní zapojení tranzistorů jako spínačů ke spínání odporové a~induktivní zátěže}
+    \label{schema:transistory:spinace}
 \end{schema}
-Je důležité si uvědomit, že pokud přivedeme napětí na bázi NPN (šipka ven) resp. gate N-kanálového tranzistoru, tak se sepne. 
+%Je důležité si uvědomit, že pokud přivedeme napětí na bázi NPN (šipka ven) resp. gate N-kanálového tranzistoru, tak se sepne. 
 
-ALE! U~PNP a~P-kanálových tranzistorů je to naopak. Pokud přivedeme napětí VCC skrze rezistor na bázi, tak se tranzistor uzavře a~nebude vodit. To proto, že nebude žádný úbytek napětí mezi emitorem (to se šipkou dovnitř) a~bází (oba budou připojeny na napájecí napětí). Abychom sepli tranzistor, musíme hodit CTRL vstup na zem. Obdobně pro P-kanálový tranzistor (úplně vpravo). Tento spínač má v~sobě tedy ještě zabudovanou negaci a~spíná při přivedení 0~V.
+%ALE! U~PNP a~P-MOSFET tranzistorů je to naopak. Pokud přivedeme napětí VCC skrze rezistor na bázi, tak se tranzistor uzavře a~nebude vodit. To proto, že nebude žádný úbytek napětí mezi emitorem (to se šipkou dovnitř) a~bází (oba budou připojeny na napájecí napětí). Abychom sepli tranzistor, musíme hodit CTRL vstup na zem. Obdobně pro P-kanálový tranzistor (úplně vpravo). Tento spínač má v~sobě tedy ještě zabudovanou negaci a~spíná při přivedení 0~V.
 
-Proud, který je bipolární tranzistor ochoten pustit z~kolektoru do emitoru je $\beta$-násobek proudu do báze.
-\begin{equation*}
-    I_\text{C} = \beta I_\text{B}, ~~~I_\text{B} = \frac{V_\text{CTRL} - V_\text{BE}}{R_\text{B}} = \frac{U_\text{CTRL} - 0.7~\text{V}}{R_\text{B}}
-\end{equation*}
-Tento proud, který je tranzistor ochoten pustit musí být větší, než proud, který cheme, aby tekl zátěží. Aby byl proud limitován pouze rezistorem v~sérii se zátěží a~nebyl limitován tranzistorem.
+U NPN tranzistorů a N-kanálových MOSFETů není moc co řešit - přivedeme napětí na bázový rezistor, bází začne protékat proud a tranzistor se sepne. Docela trapná situace nastává u PNP tranzistorů a P-kanálových mosfetů. I zde je otevření tranzistoru řízeno napětím $U_{BE}$ resp. $U_{GS}$. Jelikož máme ale emitor resp. source připojen na napájecí napětí, abychom tranzistor \uv{vypnuli}, musíme i na bázi přivést napájecí napětí. Nejen, že se nám invertovaly úrovně zapnutí ledky. To se ještě dá přežít. Abychom vypli ledku, musíme přivést na bázi resp. gate napětí, které odpovídá \textit{VCC}. Pokud je napájecí napětí např. 15~V a \textit{CTRL} signál jde z nějakého mikrokontroléru, nemáme šanci tranzistor vypnout. Potřebovali bychom skutečně výstup z mikrokontroléru, co má 15~V. Tak jak na to?
 
-U unipolárního tranzistoru musíme dávat pozor, aby proud, který je tranzistor ochoten pustit:
-\begin{equation*}
-    I_\text{D} = \frac{1}{2}k_p \frac{W}{L} (U_\text{GS} - U_\text{T})^2
-\end{equation*}
-byl větší, než proud, který požadujeme, aby tekl zátěží.
+Nezoufejte! Řešení je blízko, je elegantní a je na schématu \ref{sch:transistor:driver}. Místo přímého spínání si zavedeme ještě jeden transistor NPN, který bude spínat koncový PNP resp. P-MOSFET. Jestliže bude na $CTRL$ vstupu 0~V, NPN tranzistor zůstane vypnutý a na bázi PNP tranzistoru bude $U_{VCC} = 15~\text{V}$. To proto, že nepoteče žádný proud skrze $R_2$ a nebude na něm zádný úbytek napětí. Tedy PNP tranzistor bude také vypnutý a ledka nebude svítit. 
 
-Rezistory u~Gatu MOSFETů jsou pulldown/pullup rezistory, které zajistí, že se na Gatu nenaindukuje náboj, který by otevřel přechod (to se děje velice často a~pokud tam nedáte pulldown/pullup, tak si poserete život).
-
-Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~závěrném směru. Pokud se rychle změní proud cívkou, naindukuje se na ní napětí v~opačném směru. Tato špička může prorazit tranzistor a~je potřeba paralelní dioda, která tuto špičku pohltí.
+V momentě, kdy přivedem na vstup např. $3.3~\text{V}$, mezi bází a emitorem NPN tranzistoru se vyrobí úbytek cca $0.6~\text{V}$, čímž se sepne. Jak se sepne, stáhne se naptětí na kolektoru NPN tranzistoru skoro na nulu a tedy bude moct protékat proud rezistorem $R_3$ ($R_3$ nás teď nezajímá). Díky tomu poteče proud i bází PNP transistoru a PNP tranzistor se otevře.
 
 \begin{schema}
     \centering
     \includegraphics[width=.7\textwidth]{tranzistory-spinace_driver.PNG}
     \caption{High-side spínání pomocí omezeného rozsahu napětí řídící logiky}
+    \label{sch:transistor:driver}
 \end{schema}
+
+Zkuste si schovat výše uvedená schémata a nakreslete si tato zapojení. Rozhodně si je zapamatujete víc, než pouhým koukáním.
+
+\subsection*{Výpočet bázového rezistoru a předřadného rezistoru pro LEDku}
+$I_{LED}$ = 15~mA, $U_{LED}$ = 2~V, $U_{VCC}$ = 15~V, $U_{CTRL}$ = 3.3~V\\
+Následující řádky jsou s ohledem na schéma \ref{schema:transistory:spinace}. Proud, který je bipolární tranzistor ochoten pustit z~kolektoru do emitoru je $\beta$-násobek proudu do báze.
+\begin{equation*}
+    I_\text{C} = \beta I_\text{B}, ~~~I_\text{B} = \frac{U_\text{CTRL} - U_\text{BE}}{R_\text{B}} = \frac{U_\text{CTRL} - 0.6~\text{V}}{R_\text{B}}
+\end{equation*}
+Tento proud, který je tranzistor ochoten pustit, musí být větší, než proud, který chceme, aby tekl zátěží. Aby byl proud limitován pouze rezistorem v~sérii se zátěží a~nebyl limitován tranzistorem. Dejme tomu, že zvolíme proud, který je tranzistor ochoten pustit desetinásobný oproti proudu LEDkou:
+\begin{align*}
+    I_B = 10 \cdot \frac{I_C = 15 mA}{\beta = 300} = 10\cdot 0.05\text{ mA} = 0.5\text{ mA}
+\end{align*}
+Proud tedy známe a napětí na bázovém rezistoru také - to je $U_{CTRL} - U_{BE}$. Odpor spočteme jako:
+\begin{align*}
+    R = \frac{U_{R_B}}{I_B} = \frac{3.3 - 0.6 \text{ V}}{0.5\text{ mA}} = 5.4\text{ k$\Omega$}.
+\end{align*}
+
+A jak zjistit předřadný odpor k LEDce? Napájení máme $15$~V. Na ledce chceme úbytek $2$~V a proud ledkou $15$~mA. Na předřadném rezistoru tedy musí být úbytek.
+\begin{align*}
+    U_R = U_{VCC} - U_{\text{LED}} = 15 - 2\text{ V} = 13\text{ V}
+\end{align*}
+Proud rezistorem je také $15$~mA, takže použijeme ohmův vztah:
+\begin{align*}
+    R_\text{LED} = \frac{U_{R_\text{LED}}}{I_{LED}} = \frac{13}{15\cdot 10^{-3}} = 866~\Omega
+\end{align*}
+
+
+U unipolárního tranzistoru MOSFET musíme dávat pozor, aby proud, který je tranzistor ochoten pustit:
+\begin{equation*}
+    I_\text{D} = \frac{1}{2}k_p \frac{W}{L} (U_\text{GS} - U_\text{T})^2
+\end{equation*}
+byl větší, než proud, který požadujeme, aby tekl zátěží. Tady si buď můžete vyjádřit $U_{GS}$ anebo nemusíte. Na Gate mosfetu můžete klidně dát rovnou napětí 3.3~V. On tam do gatu stejně žádný proud neteče, takže se nebude nic zatěžovat. Narozdíl od bipolárního tranzistoru, kde naopak chceme co nejmenší proud do báze, abychom zbytečně neuzatěžovali řídicí pin mikrokontroléru.
+
+Rezistory u~Gatu MOSFETů jsou pulldown/pullup rezistory, které zajistí, že se na Gatu nenaindukuje náboj, který by otevřel přechod (to se děje velice často a~pokud tam nedáte pulldown/pullup, tak si poserete život).
+
+Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~závěrném směru. Pokud se rychle změní proud cívkou, naindukuje se na ní napětí v~opačném směru. Tato špička může prorazit tranzistor a~je potřeba paralelní dioda, která tuto špičku pohltí.
+
+
 
 %23
 \section{Nakreslete zapojení jednostupňového zesilovače s~BJT NPN/PNP v~zapojení SE/SB/SC a~podle náhradního linearizovaného schématu odvoďte vztah pro jeho vstupní odpor $R_i$ a~napěťové zesílení $A_u$.}
