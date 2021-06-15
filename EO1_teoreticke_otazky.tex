@@ -340,7 +340,7 @@ hmmmmmmmmm\\
     \label{fig:zv:princip}
 \end{schema}
 
-Pro výstup ze sumátoru $u_\text{1}$ platí
+Pro výstup $u_\text{1}$ ze sumátoru $\bigoplus$ platí
 \begin{equation*}
     u_\text{1} = u_i + u_\beta.
 \end{equation*}
@@ -350,7 +350,7 @@ Pro výstup z~bloku $\beta$ resp. vstup do sumátoru $u_\beta$ platí:
 \end{equation*}
 Pro výstup ze zesilovače se zesílením $A$ platí $u_o = Au_\text{1}$. Dosazením za $u_\text{1}$ dostaneme:
 \begin{equation*}
-    u_o = (u_i + \beta u_o) = \frac{u_i A}{1-\beta A}.
+    u_o = A(u_i + \beta u_o) = \frac{u_i A}{1-\beta A}.
 \end{equation*}
 
 Zesílení soustavy je definováno poměrem výstupu a~vstupu tedy:
@@ -439,7 +439,7 @@ Pár vztahu, které lze vyčíst ze schématu \ref{sch:zv:seriova:odpor} (bereme
     \end{equation}
     \item Dále platí, že součet napětí $u_\text{1}$ a~$u_\beta$ musí dát $u_i$
     \begin{equation}
-        u_i = u_\text{1} + u_\beta
+        u_i = i_\text{1} + u_\beta
         \label{eq:soucet:napeti}
     \end{equation}
     \item Malý bloček s~betou snímá zprava napětí na $R_z$ resp. výstupní napětí $u_o = Au_\text{1}$. Toto napětí pak zesílí (zeslabí) beta krát a~prdne se doleva jako $u_\beta$:
@@ -523,8 +523,8 @@ Suma sumárum máme tuhletu tabulku:
     \begin{tabular}{|l|c|c|}
         \hline
         & Sériová ZV & Paralelní ZV\\\hline\hline
-        \rule{0pt}{2.5ex}Vstupní odpor & $Z_{in} = Z_i F$ & $R_{in} = \frac{R_i}{F}$\\[.7ex]\hline
-        \rule{0pt}{2.5ex}Výstupní odpor & $Y_{out} = \frac{R_o}{F}$ & $R_{out} = R_o F$\\[.7ex]\hline
+        \rule{0pt}{2.5ex}Vstupní odpor & $R_{in} = R_i F$ & $R_{in} = \frac{R_i}{F}$\\[.7ex]\hline
+        \rule{0pt}{2.5ex}Výstupní odpor & $R_{out} = \frac{R_o}{F}$ & $R_{out} = R_o F$\\[.7ex]\hline
     \end{tabular}        
     \caption{Výsledné odpory pro daná zapojení, $F=1+\beta A$}
 \end{table}%
@@ -1358,8 +1358,9 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 \begin{align*}
     g_m &= 40I_C\\
     g_\pi &= \frac{1}{r_\pi} = \frac{g_m}{\beta}\\
-    g_e &= \frac{1}{r_e} = \frac{g_m}{\alpha} = \frac{\beta}{r_\pi \alpha}= \frac{\beta + 1 }{r_\pi}
-    r_o = \frac{U_A}{I_C},\text{ kde $U_A = 80~V$ je Earlyho napětí}
+    g_e &= \frac{1}{r_e} = \frac{g_m}{\alpha} = \frac{\beta}{r_\pi \alpha}= \frac{\beta + 1 }{r_\pi}\\
+    r_o &= \frac{U_A}{I_C},\text{ kde $U_A = 80~V$ je Earlyho napětí}\\
+    r_\pi &= (1+\beta)r_e\\
     \alpha &= \frac{\beta}{\beta +1}
 \end{align*}
 
