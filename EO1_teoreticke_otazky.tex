@@ -902,7 +902,7 @@ Naše zapojení vypadá skoro jako invertující zesilovač, jen místo jednoho 
 \subsection*{Ztrátový integrátor}
 Kondenzátor by se nám ale při integraci mohl nabíjet do nekonečna. Abychom zabránili tomu, že narazíme na limit napájecího napětí operačního zesilovače, přidáme paralelně s~kondenzátorem ještě rezistor. Ten zajistí, že maximální napětí na výstupu bude omezeno \uv{jako kdyby to byl jen invertující zesilovač}.
 \begin{equation}
-    H(s) = -\frac{Z_2}{R_1} = \frac{\frac{R_2}{1+sC_2R_2}}{R_1} = -\frac{R_2}{R_1}\frac{1}{1-sC_2R_2} = \frac{H_0}{1+s\tau},
+    H(s) = -\frac{Z_2}{R_1} = \frac{\frac{R_2}{1+sC_2R_2}}{R_1} = -\frac{R_2}{R_1}\frac{1}{1+sC_2R_2} = \frac{H_0}{1+s\tau},
 \end{equation}
 kde $H_0 = -\frac{R_2}{R_1},~~~\tau_2 = C_2 R_2,~~~\omega_0 = \frac{1}{\tau_2}$
 \begin{graf}
