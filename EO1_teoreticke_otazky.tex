@@ -223,8 +223,19 @@
 Přenosová funkce (přenos) je definována jako \textbf{podíl} Laplaceových obrazů výstupní a~vstupní veličiny systému při nulových počátečních podmínkách.
 
 \textbf{Linearita}: pokud se zvětší vstupní signál, tak se lineárně zvětší i~signál výstupní.\\
+\begin{equation}
+    y(t) = \mathcal{S}\{u(t)\} ~\Rrightarrow~ay(t) = \mathcal{S}\{au(t)\} = a\mathcal{S}
+\end{equation}
+
 \textbf{Princip superpozice}: součet odezev na dílčí složky signálu je odezva na celkový signál\\
+\begin{equation}
+    y(t) = \mathcal{S}\{au_1(t) + bu_2(t)\} = y_1(t) + y_2(t) = a\mathcal{S}\{u_1(t)\} + b\mathcal{S}\{u_2(t)\}
+\end{equation}
+
 \textbf{Časová invariance}: je jedno, kdy do signálu pustíme signál
+\begin{equation}
+    y(t-t_0) = \mathcal{S}\{u(t-t_0)\}
+\end{equation}
 
 Z přenosové funkce jde zjistit
 \begin{itemize}
@@ -337,7 +348,8 @@ hmmmmmmmmm\\
 %6
 \section{Nakreslete principiální zapojení zpětnovazební (ZV) struktury a~odvoďte vztah pro výstupní signál. Uveďte základní dělení ZV obvodových struktur a~vliv záporné ZV na vstupní a~výstupní odpor zesilovače}
 \subsection*{Principiální zapojení + vztah}
-\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.10.1}{\textit{Odkaz na odpovídající kapitolu v Hospodkových skriptách}}
+\href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.10.1}{\textit{Odkaz na odpovídající kapitolu v Hospodkových skriptách}}\\
+\textit{Dole je tabulka \ref{tab:zv:odpory} s~výsledkama}
 
 \begin{schema}[h!]
     \centering
@@ -412,7 +424,7 @@ Vnitřní zesílení $A$ operáku (neplést s~$A'$ - zesílení soustavy s přid
 Vzoreček pro neinvertující zesilovač si nechávaj tetovat obvodáři na prsa a~je $A' = 1+\frac{R_f}{R_g}$ .Pokud dosadíme, tak je všecko v~cajku a~sedí oba dva způsoby výpočtu
 
 \subsection*{Vliv ZZV na vstupní a~výstupní odpor}
-\textit{Dole je tabulka s~výsledkama}
+\textit{Dole je tabulka \ref{tab:zv:odpory} s~výsledkama}
 
 Budou se tu vyskytovat čtyři veličiny které je potřeba si neplést:
 \begin{table}[h!]
@@ -533,6 +545,7 @@ Suma sumárum máme tuhletu tabulku:
         \rule{0pt}{2.5ex}Výstupní odpor & $R_{out} = \frac{R_o}{F}$ & $R_{out} = R_o F$\\[.7ex]\hline
     \end{tabular}        
     \caption{Výsledné odpory pro daná zapojení, $F=1+\beta A$}
+    \label{tab:zv:odpory}
 \end{table}%
 
 Pokud chceme být jooo cool lidi, tak můžeme začít házet slova jako impedance a~admitance. To se hodí v~případě střídavých signálů a~vstupní a~výstupní impedance jsou poté:
