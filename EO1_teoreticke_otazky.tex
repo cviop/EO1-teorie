@@ -639,6 +639,7 @@ Jde o~techniku \textbf{přidání dominantního pólu}, aby byla soustava stabil
 \newpage
 %8
 \section{Nakreslete invertující a~neinvertující zesilovače s~OZ a~odvoďte vztah pro napěťové zesílení v~případě ideálního OZ. Jaký je vstupní odpor zapojení?}
+\label{chap:opamp}
 \href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.3}{\textit{Odkaz na odpovídající kapitolu v Hospodkových skriptách}}
 
 \textbf{Motivace}: důležitá věc pro praxi, tohle je fakt dobrý mít zmáknutý.
@@ -1017,6 +1018,7 @@ Z grafu je poté patrné, že sčítačka takto sečte vstupní signály (hněd�
 %16
 \section{Nakreslete zapojení neinvertujícího a~invertujícího komparátoru s~hysterezí, uveďte jeho převodní charakteristiku a~odvoďte vztahy pro překlápěcí úrovně.}
 \label{chap:komp}
+BACHA! tady už neplatí mantra o OZ z kapitoly \ref{chap:opamp}, že na vstupech si OZ hlídá stejné napětí. Toto není zapojení zesilovače se ZZV a~nechováme se k chudákovi operákovi hezky. \\
 \href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/ElektronickeObvody.pdf#section.11.19}{\textit{Odkaz na odpovídající kapitolu v Hospodkových skriptách}}
 
 \textbf{Motivace}: pokud máme např. pomalé průběhy, nebo zašumělný signál, může nastat situace, kdy komparátor sice detekuje dostatečně vysoké napětí a~na výstup dá odpovídající hodnotu, ale šum může způsobit krátké oscilace, jak se zobrazeno na grafu \ref{graf:komp:nonhys}.
@@ -1057,11 +1059,12 @@ V momentě, kdy vstupní napětí $u_i$ (shodné s~$u_-$) bude vyšší jak $u_+
 \end{figure}
 
 Z toho nám vycházejí překlápěcí úrovně:\\
-\begin{align*}
-    U_i^+ &= U_o^+\frac{R_1}{R_1 + R_2},\\
-    U_i^- &= U_o^-\frac{R_1}{R_1 + R_2}.\\
-\end{align*}
-
+\begin{gather}
+\begin{aligned}
+    \underline{\underline{U_i^+ = U_o^+\frac{R_1}{R_1 + R_2}}}\\
+    \underline{\underline{U_i^- = U_o^-\frac{R_1}{R_1 + R_2}}}
+\end{aligned}
+\end{gather}
 
 
 
@@ -1072,6 +1075,7 @@ Všimněte si, že Neinvertující komparátor na obr. \ref{fig:neinvert:komp} s
 Operační zesilovač porovnává napětí $u_+$ vůči zemi. Pokud bude $u_+ > 0$, tak $u_o = U_o^+$ (na výstupu bude kladné napájecí napětí). Pokud $u_+ < 0$, tak $u_o = U_o^-$ (na výstupu bude záporné napájecí napětí).
 
 Pokud bude na výstupu kladné napětí, tak sám operák si do svého vstupu přidává jistý proud. Čiže pokud se na vstupu komparátoru objeví dotatečné napětí na překlopení, operák si na vstup $u_+$ ještě přidá, aby se v~tomto překlopeném stavu zafixoval. Pokud bychom chtěli komparátor překlopit dolů s~zápornému napájecímu napětí, musíme na vstup komparátoru dát ještě o~něco víc záporný signál, abychom přebili to, co si tam pouští momentálně nahoru překlopený OZ.
+
 
 \begin{figure}[h!]
     \centering
@@ -1086,6 +1090,15 @@ Pokud bude na výstupu kladné napětí, tak sám operák si do svého vstupu p�
     \caption{Schéma a~průběhy neinvertujícího komaparátoru s~hysterezí}
     \label{fig:neinvert:komp}
 \end{figure}
+
+Pouze pro moment překlopení platí, že na vstupech je stejné napětí, tedy $u_+ = 0$. Překlápecí úrovně jsou poté:
+\begin{gather}
+    \begin{aligned}
+        \frac{U_i^+}{R_1} = \frac{-U_o^-}{R_2}~\rightarrow~\underline{\underline{U_i^+ = -U_o^-\frac{R_1}{R_2}}}\\
+        \frac{U_i^-}{R_1} = \frac{-U_o^+}{R_2}~\rightarrow~\underline{\underline{U_i^- = -U_o^+\frac{R_1}{R_2}}}
+    \end{aligned}     
+\end{gather}
+
 
 \textbf{Analogie ze života}\\
 Představte si, že jste v~hospodě a~nějaký vnitřní ukazatel vám zabliká, pokud se akorát tak dostanete na hladinu alkoholu, po které vám bude ráno blbě. Hystereze v~tomto případě znamená, že do sebe ještě kopnete další tři panáky, abyste si pošéfovali, že jste tuto hladinu překročili dostatečně. Pokud se ale budete chtít vrátit zpět pod hladinku např. pitím vody, budete muset přepít ještě ty tři panáky. Stejně jako signál do komparátoru musí přebít to, co si tam OZ sám pouští na uzel $u_+$ skrze $R_2$.
