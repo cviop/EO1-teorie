@@ -142,7 +142,7 @@
 
 
 \usepackage{tocloft}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %tecky v obsahu
 
 
 \begin{document} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -274,19 +274,18 @@ Pokud je $Re{B}$ kladné $\rightarrow$ pól je záporný $\rightarrow$ systém j
 %4
 \section{Napište přenosovou funkci kmitočtového filtru 2.řádu typu dolní/horní/pásmová propust, případně pásmová zádrž, definujte jednotlivé parametry a~vysvětlete co určují (v kmitočtové a~časové oblasti}
 \href[pdfnewwindow=true]{http://hippo.feld.cvut.cz/vyuka/soubory/filtry_prenosy.pdf#page.18}{\textit{Odkaz na odpovídající kapitolu v Hospodkových skriptách}}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{filtry_2_rad.png}
     \caption[Caption for LOF]{Filtry 2. řádu a~jejich matematický popis\footnotemark}
 \end{figure}
 \footnotetext{Ideálně vypálit do očí, ale pokud jste odvážní, můžete si všechno odvodit.}
 
-\begin{table}[h!]
+\begin{table}[H]
     \begin{tabular}{l}
         $s_{p_{1,2}}$ - komplexně sdružený pól\\
-        $\omega_0$ - resonanční frekvence\\
-        $Q$ - činitel jakosti\\
+        $\omega_0 = \frac{1}{\sqrt{LC}}$ - resonanční frekvence\\
+        $Q = \omega_0 \frac{L}{R}$ - činitel jakosti\\
         $\xi = \frac{1}{2Q}$ - tlumící faktor
     \end{tabular}
 \end{table}
@@ -379,7 +378,7 @@ kde činitel $F = 1-\beta A$ je tzv. \textit{vratným rozdílem} a~činitel $\be
 
 \begin{schema}[h!]
     \centering
-    \includegraphics[width=.8\textwidth]{ZV-obvody.png}
+    \includegraphics[width=.7\textwidth]{ZV-obvody.png}
     \caption{Dělení ZV podle spojení signálů na vstupu a~dle typu snímaného signálu na výstupu}
     \label{fig:ZV:deleni}
 \end{schema}
