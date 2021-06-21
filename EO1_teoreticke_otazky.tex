@@ -224,12 +224,12 @@ Přenosová funkce (přenos) je definována jako \textbf{podíl} Laplaceových o
 
 \textbf{Linearita}: pokud se zvětší vstupní signál, tak se lineárně zvětší i~signál výstupní.\\
 \textbf{Princip superpozice}: součet odezev na dílčí složky signálu je odezva na celkový signál\\
-\textbf{Čaová invariance}: je jedno, kdy do signálu pustíme signál
+\textbf{Časová invariance}: je jedno, kdy do signálu pustíme signál
 
 Z přenosové funkce jde zjistit
 \begin{itemize}
     \item Stabilita systému
-    \item Koeficienty modulové charakteristky
+    \item Koeficienty modulové charakteristky (nuly a póly)
 \end{itemize}
 
 
@@ -646,7 +646,7 @@ Dvě MEGAMEGAMEGAmoc důležité mantry:
     \item Do vstupů operáku \textbf{neteče žádný proud}
 \end{enumerate}
 
-S tímto se můžeme vydat do světa odvozování. Začněme s~neinvetujícím zesilovačem:\\
+S tímto se můžeme vydat do světa odvozování. Začněme s~\textbf{neinvetujícím} zesilovačem:\\
 Na neinvertujícím (+) vstupu je napětí $u_i$. Mantra říká, že i~na invertujícím (-) vstupu bude $u_i$. Napětí $u_i$ bude i~na výstupu děliče napětí, tvořeného rezistory $R_1$ a~$R_2$. To nám dává do ruky následující vztah:
 \begin{equation*}
     u_i = u_o \frac{R_1}{R_1 + R_2}.
@@ -665,7 +665,7 @@ Mega cool vlastnost je vstupní odpor tohoto zapojení. Jak mantra říká - do 
     \underline{\underline{R_{in} = \infty}}
 \end{equation*}
 
-Úvaha pro invertující zesilovač je lehce složitější, ale ne zase tolik:\\
+Úvaha pro \textbf{invertující} zesilovač je lehce složitější, ale ne zase tolik:\\
 Jestliže je neinvertující vstup připojen na zem, tak napětí na něm bude $0$~V. Stejné napětí bude také na invertujícím vstupu (to říká jedna z~manter). Napětí zde bude vůči zemi 0~V a~někdy se tomuto bodu říká \textbf{virtuální zem}. Druhá mantra říká, že do vstupu operáku nic neteče. Tedy proud skrze $R_1$ musí v~plné síle protéct také skrze $R_2$.
 
 Proud tekoucí skrze $R_1$ je snadné spočítat, jelikož na jedné straně má $u_i$ a~na druhé straně 0~V, které si tam hlídá operák. Tedy pro proud platí:
@@ -797,9 +797,9 @@ Rozdílová poté jako
 \end{equation*}
 
 \textbf{Podmínka}, aby byla souhlasná složka rušení nulová:
-\begin{equation*}
+\begin{equation}
     \frac{R_4}{R_3} = \frac{R_2}{R_1},
-\end{equation*}
+\end{equation}
 
 \begin{figure}[h!]
     \centering
@@ -1262,6 +1262,7 @@ Hodně cool věc je, že můžeme jednoduše dělit frekvenci ve zpětné vazbě
 \begin{graf}[h!]
     \centering
     \includegraphics[width = .6\textwidth]{fazovy_zaves-deleni.PNG}
+    \caption{Blokové schéma kmitočtové syntézy resp. násobičky frekvence}
 \end{graf}
 Cool, co?
 
@@ -1356,6 +1357,7 @@ Pokud jde o~spínání induktivní zátěže, tak je nutné přidat diodu v~záv
 \textbf{Motivace}: zesilovače aaaaaA!
 \subsection*{Pár důležitých vztahů na začátek}
 \begin{align*}
+    I_C = \beta I_B
     g_m &= 40I_C\\
     g_\pi &= \frac{1}{r_\pi} = \frac{g_m}{\beta}\\
     g_e &= \frac{1}{r_e} = \frac{g_m}{\alpha} = \frac{\beta}{r_\pi \alpha}= \frac{\beta + 1 }{r_\pi}\\
@@ -1413,8 +1415,8 @@ Napěťové zesílení $1$, ale proudové zesílení vysoké. Jedná se o~tzv. \
 
 \subsection*{Pár důležitých vztahů na začátek}
 \begin{align*}
+    I_D &= \frac{1}{2} K_p \frac{W}{L}(U_{GS} - U_{TO})^2\\
     g_m &= K_p\frac{W}{L}(U_{GS} - U_{TO})\\
-    g_m &= 2\sqrt{K_\beta I_D}\\
     g_o &= \frac{1}{r_o} = I_D|\lambda|
 \end{align*}
 
